@@ -11,7 +11,27 @@ const quoteGenerator =[
     {
         quote:"Complexity always hides the future, as opposed to predicting it.",
         author:"Scott Adams"
-    }
+    },
+    {
+        quote:"Be yourself; everyone else is already taken.",
+        author:"Oscar Wilde"
+    },
+    {
+        quote:"Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+        author:"Albert Einstein"
+    },
+    {
+        quote:"A room without books is like a body without a soul.",
+        author:"Marcus Tullius Cicero"
+    },
+    {
+        quote:"You know you're in love when you can't fall asleep because reality is finally better than your dreams",
+        author:"Dr. Seuss"
+    },
+    {
+        quote:"Be the change that you wish to see in the world.",
+        author:"Mahatma Gandhi"
+    },
 ]
 
 function randomQuoteGenerator(quoteArray)
