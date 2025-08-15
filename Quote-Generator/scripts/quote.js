@@ -36,21 +36,19 @@ const quoteGenerator =[
 
 function randomQuoteGenerator(quoteArray)
 {
-    let getRandomIndex=Math.floor(Math.random(quoteArray) * quoteArray.length);
-    console.log(getRandomIndex)
+    let getRandomIndex=Math.floor(Math.random() * quoteArray.length);
     return quoteArray[getRandomIndex];
 }
 
 
 //get the button id 
 let getButtonID=document.getElementById('new-quote');
-console.log(getButtonID);
 
 //add click event listener to the button
 getButtonID.addEventListener('click',function(){
         //call the function to get random quote
         let randomQuote=randomQuoteGenerator(quoteGenerator);
-        console.log(randomQuote);
+
         //Replace the quote with the random quote 
         let quoteDisplayArea=document.querySelector('.text-area');
         quoteDisplayArea.innerText=randomQuote.quote;
