@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    background: url(../img/project-3.jpg) no-repeat center center/ cover;
+}
+
+.container{
+
+    background-color: #fff;
+    padding: 30px;
+    width: 800px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.header{
+text-align: center;
+}
+
+.main-content
+{
+    margin-top: 50px;
+}
+
+.accordion-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.accordion-placeholder,.accordion-body
+{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.icon{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.accordion-body{
+    display:none;
+    
+}
+
+.accordion-body.active {
+    display: block;
+}
