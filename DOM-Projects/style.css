@@ -6,3 +6,17 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
+
+.list-projects
+{
+    h3{
+        font-size: 1.5rem;
+        text-align:left;
+    }
+    li{
+
+        list-style: none;
+        padding: 10px;
+    }
+
+}
