@@ -1,19 +1,11 @@
 /* General Styles */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-}
-
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
-    background: url(img/project-1.jpg) no-repeat center center/ cover;
+    background: url(../img/project-1.jpg) no-repeat center center/ cover;
 }
 
 .container {
