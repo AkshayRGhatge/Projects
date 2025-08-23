@@ -1,7 +1,7 @@
 body{
      background: url(../img/project-2.jpg) no-repeat center center/ cover;
      height: 100vh;
-      position: relative;
+    position: relative;
 }
 
 #openModal{

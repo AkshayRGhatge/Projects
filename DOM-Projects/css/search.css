@@ -1,0 +1,39 @@
+/*CSS for search */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    
+}
+
+#search{
+    padding: 5px;
+}
+
+.super-heros-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(2, auto);  /* 2 rows */
+  gap: 16px;
+  padding: 20px
+}
+
+.hero{
+  
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 30px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+    
+.hero:hover {
+  transform: scale(1.05);
+  background-color: #e0e0ff;
+}
