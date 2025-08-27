@@ -1,7 +1,6 @@
-
 body {
   display: grid;
-  grid-template-columns: 200px 1fr 400px;
+  grid-template-columns: 150px 1fr 400px;
   grid-template-rows: 1fr;
   grid-template-areas: "nav main aside";
   height: 100vh; /* Use height instead of min-height for strict fill */
@@ -9,6 +8,22 @@ body {
 }
 
 /* Menu section */
+.logo-container {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.logo{
+  display: block;
+  margin: 0 auto;
+  max-width: 100px;
+  height: 70px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-radius: 8px
+}
+
 nav {
     grid-area: nav;
     background: #2c3e50;
@@ -17,11 +32,47 @@ nav {
     height: 100%;
 }
 
-nav a {
-    display: block;
-    color: white;
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.nav-menu li {
+    margin-bottom: 15px;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
     text-decoration: none;
-    margin: 0.5em 0;
+    color: #ecf0f1;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.nav-menu a:hover {
+    background-color: #34495e;
+    color: #ffffff;
+    transform: scale(1.03); 
+}
+
+
+/* Selected state  */
+.nav-menu a.selected {
+    background-color: #ff6600;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: inset 0 -1px 0 #aaa;
+}
+
+a:hover {
+    color: #ff6600; /* bright orange */
 }
 
 /* Main section */
@@ -79,23 +130,23 @@ article {
     font-weight: bold;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: transform 0.2s ease;
+    
+}
+/* hover effect on the menu category*/
+.category-item:hover{
+   background-color: #e0e0e0; /* slightly darker gray */
+   transform: scale(1.03);    /* gentle zoom effect */
+   cursor: pointer;
 }
 
-
-/*Menu item section*/
-.menu-item-container{
-    display: flex;
-    gap: 16px;
+/* when item selected on the menu category*/
+.category-item.selected {
+    background-color: #ff6600; /* vibrant orange */
+    color: #fff;               /* white text for contrast */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* deeper shadow */
 }
-
-.menu-item{
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    padding: 40px;
-    text-align: center;
-    font-weight: bold;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+a{
+  text-decoration: none;
 }
 
 /* Product item css*/

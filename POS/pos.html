@@ -16,13 +16,18 @@
     </head>
     <body>
         <nav>
-            <h2>Logo</h2>
-            <a href="#">Menu</a>
-            <a href="#">Orders</a>
-            <a href="#">History</a>
-            <a href="#">Bills</a>
-            <a href="#">Reports</a>
-            <a href="#">Setting</a>
+            <div class="logo-container">
+                <img src="img/logo/pos.png" alt="POS Logo" class="logo">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="selected"><i class="fas fa-utensils"></i> Menu</a></li>
+                <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
+                <li><a href="#"><i class="fas fa-receipt"></i> Orders</a></li>
+                <li><a href="#"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> Bills</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Reports</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
         </nav>
         <main>
             <!--Header Placeholder contains the search menu and user info-->
@@ -40,21 +45,11 @@
                 <article>
                     <h3>Category</h3>
                     <div class="category-container">
-                        <div class="category-item">
-                            Starter
-                        </div>
-                        <div class="category-item">
-                            Main
-                        </div>
-                        <div class="category-item">
-                            Side
-                        </div>
-                        <div class="category-item">
-                            Drink
-                        </div>
-                        <div class="category-item">
-                            Desserts
-                        </div>
+                    <a href="#" class="category-item ">Starter</a>
+                    <a href="#" class="category-item selected">Main</a>
+                    <a href="#" class="category-item">Side</a>
+                    <a href="#" class="category-item">Drink</a>
+                    <a href="#" class="category-item">Desserts</a>
                     </div>
                 </article>
             </section>
