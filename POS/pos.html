@@ -16,9 +16,10 @@
     </head>
     <body>
         <nav>
-            <div class="logo-container">
-                <img src="img/logo/pos.png" alt="POS Logo" class="logo">
-            </div>
+            <button class="hamburger" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+          
             <ul class="nav-menu">
                 <li><a href="#" class="selected"><i class="fas fa-utensils"></i> Menu</a></li>
                 <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
@@ -32,9 +33,11 @@
         <main>
             <!--Header Placeholder contains the search menu and user info-->
             <section class="header">
-                <div class="search-product-container">
-                    <input type="text" class="search-product" placeholder="Search menu">
+                <div class="logo-container">
+                    <i class="fas fa-store-alt logo-icon"></i>
+                    <span class="logo-text">POS</span>
                 </div>
+               
                 <div class="user-information-container">
                     <div>Akshay Ghatge</div>
                     <div>Clocked at 10:00AM</div>
@@ -46,7 +49,8 @@
                     <h3>Category</h3>
                     <div class="category-container">
                     <a href="#" class="category-item ">Starter</a>
-                    <a href="#" class="category-item selected">Main</a>
+                    <a href="#" class="category-item">Main</a>
+                    <a href="#" class="category-item selected">Curries</a>
                     <a href="#" class="category-item">Side</a>
                     <a href="#" class="category-item">Drink</a>
                     <a href="#" class="category-item">Desserts</a>
@@ -57,11 +61,14 @@
             <section>
                  <article>
                 <div class="main">
+                     <div class="search-product-container">
+                        <input type="text" class="search-product" placeholder="Search menu">
+                    </div>
                     <div class="products-grid">
                         <div class="product-container">
                             <div class="product-image-container">
                                 <img class="product-image"
-                                src="img/main/aloo-chana-recipe.jpg">
+                                src="img/curries/aloo-chana-recipe.jpg">
                             </div>
 
                             <div class="product-name limit-text-to-2-lines">
@@ -103,7 +110,7 @@
                         <div class="product-container">
                             <div class="product-image-container">
                                 <img class="product-image"
-                                src="img/main/aloo-chana-recipe.jpg">
+                                src="img/curries/aloo-matar.jpg">
                             </div>
 
                             <div class="product-name limit-text-to-2-lines">
@@ -145,7 +152,7 @@
                         <div class="product-container">
                             <div class="product-image-container">
                                 <img class="product-image"
-                                src="img/main/aloo-chana-recipe.jpg">
+                                src="img/curries/aloo-palak.jpg">
                             </div>
 
                             <div class="product-name limit-text-to-2-lines">
@@ -197,5 +204,6 @@
 
     </body>
     <!--JS Reference-->
+    <script src="scripts/menu.js"></script>
     <script src="scripts/search.js"></script>
 </html>
