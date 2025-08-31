@@ -5,22 +5,29 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <!--StyleSheet-->
-        <link rel="stylesheet" href="css/pos.css">
+     
         <!--Global Font Link-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <!--FontAwesome Linke-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+
+         <!--StyleSheet-->
+        <link rel="stylesheet" href="css/pos.css">
     </head>
     <body>
-        <nav>
-            <button class="hamburger" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
-          
-            <ul class="nav-menu">
+        <!--Menu section for the small screen-->
+        <div class="small-screen-menu-section">
+            <div class="small-screen-header">
+                <button class="hamburger" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!--Menu section for the Large screen-->
+        <nav class="left-menu" id="sidebar">
+            <ul class="nav-menu">    
                 <li><a href="#" class="selected"><i class="fas fa-utensils"></i> Menu</a></li>
                 <li><a href="#"><i class="fas fa-search"></i> Search</a></li>
                 <li><a href="#"><i class="fas fa-receipt"></i> Orders</a></li>
@@ -30,25 +37,13 @@
                 <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
             </ul>
         </nav>
-        <main>
-            <!--Header Placeholder contains the search menu and user info-->
-            <section class="header">
-                <div class="logo-container">
-                    <i class="fas fa-store-alt logo-icon"></i>
-                    <span class="logo-text">POS</span>
-                </div>
-               
-                <div class="user-information-container">
-                    <div>Akshay Ghatge</div>
-                    <div>Clocked at 10:00AM</div>
-                </div>
-            </section>       
-              <!--Category Placeholder contains the menu category-->  
+       <div class="main-content">
+            <!--Category Placeholder contains the menu category-->  
             <section> 
                 <article>
                     <h3>Category</h3>
                     <div class="category-container">
-                    <a href="#" class="category-item ">Starter</a>
+                    <a href="#" class="category-item">Starter</a>
                     <a href="#" class="category-item">Main</a>
                     <a href="#" class="category-item selected">Curries</a>
                     <a href="#" class="category-item">Side</a>
@@ -56,31 +51,68 @@
                     <a href="#" class="category-item">Desserts</a>
                     </div>
                 </article>
-            </section>
-            <!--Menu Item Placeholder contains the menu items-->  
-            <section>
-                 <article>
-                <div class="main">
-                     <div class="search-product-container">
-                        <input type="text" class="search-product" placeholder="Search menu">
+
+                <!--Menu Product section-->  
+                <div class="products-grid">
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/aloo-chana-recipe.jpg">
+                        </div>
+                        <div class="product-name">
+                            Aloo Chana
+                        </div>
+
+                        <div class="product-price">
+                            $12.00
+                        </div>
+
+                        <div class="product-quantity-container">
+                            <i class="fa fa-minus-circle"></i>
+                            <select class="js-order-quantity-dropdown-${product.id}">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <i class="fa fa-plus-circle"></i>
+                        </div>
+                    
+                        <!--${product.extraInfoHTML()}-->
+
+                        <div class="product-spacer"></div>
+
+                        <div class="added-to-cart js-added-to-cart-${product.id}">
+                            <img src="images/icons/checkmark.png">
+                            Added
+                        </div>
+
+                        <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                            Add to Cart
+                        </button>
                     </div>
-                    <div class="products-grid">
-                        <div class="product-container">
-                            <div class="product-image-container">
-                                <img class="product-image"
-                                src="img/curries/aloo-chana-recipe.jpg">
-                            </div>
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/aloo-matar.jpg">
+                        </div>
+                        <div class="product-name">
+                            Aloo Matar
+                        </div>
 
-                            <div class="product-name limit-text-to-2-lines">
-                            Aloo Chana
-                            </div>
+                        <div class="product-price">
+                            $14.50
+                        </div>
 
-                            <div class="product-price">
-                                $12.00
-                            </div>
-
-                            <div class="product-quantity-container">
-                                <select class="js-product-quantity-dropdown-${product.id}">
+                        <div class="product-quantity-container">
+                             <i class="fa fa-minus-circle"></i>
+                            <select class="js-order-quantity-dropdown-${product.id}">
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -91,38 +123,39 @@
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                                 <option value="10">10</option>
-                                </select>
-                            </div>
-                        
-                            <!--${product.extraInfoHTML()}-->
+                            </select>
+                            <i class="fa fa-plus-circle"></i>
+                    </div>
+                
+                    <!--${product.extraInfoHTML()}-->
 
-                            <div class="product-spacer"></div>
+                    <div class="product-spacer"></div>
 
-                            <div class="added-to-cart js-added-to-cart-${product.id}">
-                                <img src="images/icons/checkmark.png">
-                                Added
-                            </div>
+                    <div class="added-to-cart js-added-to-cart-${product.id}">
+                        <img src="images/icons/checkmark.png">
+                        Added
+                    </div>
 
-                            <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
-                                Add to Cart
-                            </button>
+                    <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                        Add to Cart
+                    </button>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/aloo-palak.jpg">
                         </div>
-                        <div class="product-container">
-                            <div class="product-image-container">
-                                <img class="product-image"
-                                src="img/curries/aloo-matar.jpg">
-                            </div>
+                        <div class="product-name">
+                            Aloo Palak
+                        </div>
 
-                            <div class="product-name limit-text-to-2-lines">
-                            Aloo Chana
-                            </div>
+                        <div class="product-price">
+                            $13.00
+                        </div>
 
-                            <div class="product-price">
-                                $12.00
-                            </div>
-
-                            <div class="product-quantity-container">
-                                <select class="js-product-quantity-dropdown-${product.id}">
+                        <div class="product-quantity-container">
+                            <i class="fa fa-minus-circle"></i>
+                            <select class="js-order-quantity-dropdown-${product.id}">
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -133,38 +166,39 @@
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                                 <option value="10">10</option>
-                                </select>
-                            </div>
-                        
-                            <!--${product.extraInfoHTML()}-->
-
-                            <div class="product-spacer"></div>
-
-                            <div class="added-to-cart js-added-to-cart-${product.id}">
-                                <img src="images/icons/checkmark.png">
-                                Added
-                            </div>
-
-                            <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
-                                Add to Cart
-                            </button>
+                            </select>
+                            <i class="fa fa-plus-circle"></i>
                         </div>
-                        <div class="product-container">
-                            <div class="product-image-container">
-                                <img class="product-image"
-                                src="img/curries/aloo-palak.jpg">
-                            </div>
+                    
+                        <!--${product.extraInfoHTML()}-->
 
-                            <div class="product-name limit-text-to-2-lines">
-                            Aloo Chana
-                            </div>
+                        <div class="product-spacer"></div>
 
-                            <div class="product-price">
-                                $12.00
-                            </div>
+                        <div class="added-to-cart js-added-to-cart-${product.id}">
+                            <img src="images/icons/checkmark.png">
+                            Added
+                        </div>
 
-                            <div class="product-quantity-container">
-                                <select class="js-product-quantity-dropdown-${product.id}">
+                        <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/aloo-puri.jpg">
+                        </div>
+                        <div class="product-name">
+                            Aloo Puri
+                        </div>
+
+                        <div class="product-price">
+                            $14.00
+                        </div>
+
+                        <div class="product-quantity-container">
+                            <i class="fa fa-minus-circle"></i>
+                            <select class="js-order-quantity-dropdown-${product.id}">
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -175,35 +209,162 @@
                                 <option value="8">8</option>
                                 <option value="9">9</option>
                                 <option value="10">10</option>
-                                </select>
-                            </div>
-                        
-                            <!--${product.extraInfoHTML()}-->
-
-                            <div class="product-spacer"></div>
-
-                            <div class="added-to-cart js-added-to-cart-${product.id}">
-                                <img src="images/icons/checkmark.png">
-                                Added
-                            </div>
-
-                            <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
-                                Add to Cart
-                            </button>
+                            </select>
+                            <i class="fa fa-plus-circle"></i>
                         </div>
+                    
+                        <!--${product.extraInfoHTML()}-->
+
+                        <div class="product-spacer"></div>
+
+                        <div class="added-to-cart js-added-to-cart-${product.id}">
+                            <img src="images/icons/checkmark.png">
+                            Added
+                        </div>
+
+                        <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/baingan-bharta.jpg">
+                        </div>
+                        <div class="product-name">
+                            Baingan Bharta
+                        </div>
+
+                        <div class="product-price">
+                            $14.00
+                        </div>
+
+                        <div class="product-quantity-container">
+                             <i class="fa fa-minus-circle"></i>
+                            <select class="js-order-quantity-dropdown-${product.id}">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <i class="fa fa-plus-circle"></i>
+                        </div>
+                    
+                        <!--${product.extraInfoHTML()}-->
+
+                        <div class="product-spacer"></div>
+
+                        <div class="added-to-cart js-added-to-cart-${product.id}">
+                            <img src="images/icons/checkmark.png">
+                            Added
+                        </div>
+
+                        <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                            Add to Cart
+                        </button>
+                    </div>
+                    <div class="product-container">
+                        <div class="product-image-container">
+                            <img class="product-image"
+                            src="img/curries/black-eyed-peas-curry.jpg">
+                        </div>
+                        <div class="product-name">
+                            Black Eye Peas
+                        </div>
+
+                        <div class="product-price">
+                            $12.00
+                        </div>
+
+                        <div class="product-quantity-container">
+                             <i class="fa fa-minus-circle"></i>
+                                <select class="js-order-quantity-dropdown-${product.id}">
+                                    <option selected value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            <i class="fa fa-plus-circle"></i>
+                        </div>
+                    
+                        <!--${product.extraInfoHTML()}-->
+
+                        <div class="product-spacer"></div>
+
+                        <div class="added-to-cart js-added-to-cart-${product.id}">
+                            <img src="images/icons/checkmark.png">
+                            Added
+                        </div>
+                        <button class="add-to-cart-button button-primary js-add-to-cart" > <!--data-product-id="${product.id}">-->
+                            Add to Cart
+                        </button>
                     </div>
                 </div>
-                </article>
             </section>
-        </main>
+       </div>
+    <aside class="right-panel">
+        <section class="order-section">
+            <article class="order-header">
+                <h3>Order Details</h3>
+                <div class="order-person-info">
+                    <h4>Akshay Ghatge</h4>
+                    <p>Order ID: 1</p>
+                </div>
+            </article>
+            <article class="order-items">
+                <h4>Order Items</h4>
+                <div class="order-container">
+                   <div class="order-details-section">
+                        <div class="order-image-container">
+                            <img class="order-image" src="img/curries/aloo-puri.jpg" alt="Aloo Puri">
+                        </div>
+                        <div class="order-name">Aloo Puri</div>
+                        <button class="delete-button" aria-label="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
 
-        <aside>
-            <h2>Order Details</h2>
-            <p>This area can contain related links, ads, or extra info.</p>
-        </aside>
+                    <div class="order-qty-price">
+                    <div class="order-quantity-container">
+                        <i class="fa fa-minus-circle"></i>
+                        <select>
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <!-- ... -->
+                        <option value="10">10</option>
+                        </select>
+                        <i class="fa fa-plus-circle"></i>
+                    </div>
+                    <div class="order-price">
+                        <p>$14.00</p>
+                    </div>
+                    </div>
+
+                    <div class="added-to-cart">
+                    <img src="images/icons/checkmark.png" alt="Checkmark">
+                    Added
+                    </div>
+
+                    <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+            </article>
+        </section>
+    </aside>
 
     </body>
     <!--JS Reference-->
     <script src="scripts/menu.js"></script>
-    <script src="scripts/search.js"></script>
+    <script src="scripts/pos.js"></script>
 </html>
