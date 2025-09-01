@@ -34,7 +34,7 @@ a{
     text-decoration: none;
 }
 
-/*=======Navigation menu top side on small and mede screen=====*/
+/*========================================Navigation menu top side on small and mede screen==============================*/
 .small-screen-menu-section{
     height: 60px;
     display: flex;
@@ -56,7 +56,7 @@ a{
 }
 
 
-/*======Navigation menu left side on large screen=======*/
+/*=========================================Navigation menu left side on large screen====================================*/
 .left-menu{
     width: 150px;
     background: #2c3e50;
@@ -64,7 +64,7 @@ a{
     position:fixed;
     overflow: hidden;
     z-index: 1000;
-    height: 100vh;     
+    height: 100%;     
 }
 
 .nav-menu li {
@@ -98,7 +98,7 @@ a{
     box-shadow: inset 0 -1px 0 #aaa;
 }
 
-/*=============Main Section=========================*/
+/*=============================================Main Section==========================================================*/
 
 .display-none{
     display:none;
@@ -240,7 +240,7 @@ article {
 }
 
 
-/*======================Right Panel Section================*/
+/*====================================Right Panel Section===================================================*/
 /* Sidebar panel */
 .right-panel {
   width: 350px;
@@ -248,7 +248,7 @@ article {
   border-left: 1px solid var(--color-border);
   padding: 0px 10px;
   box-shadow: -2px 0 5px rgba(0,0,0,0.05);
-  overflow-y: auto;
+  position: relative;
   height: 100vh;
 }
 
@@ -398,8 +398,10 @@ article {
 /*Amount details container*/
 .amount-details-placeholder{
   position: absolute;
-  bottom: 10px;
-  width: -webkit-fill-available;
+  bottom: 0;
+  border-top: 2px solid rgba(0,0,0,0.1);
+  padding:0.75em;
+  width:-webkit-fill-available;
 }
 
 /* Element in the Amount details section*/
@@ -440,7 +442,7 @@ article {
   
 }
 
-/* Delete button */
+/* Quantity icons button */
 .minus-icon, .plus-icon {
   padding: 4px;
   background-color:transparent;
@@ -477,10 +479,10 @@ article {
 }
 
 .text-box{
-  padding: 8px 18px;
+  padding-left: 2px;
   width: -webkit-fill-available;
   border-radius: 8px;
-  
+
 }
 
 .proceed-payment{
@@ -520,6 +522,68 @@ article {
     .main-content{
       overflow-y: scroll;
       margin-left: 0;
+
     }
 
+    /*Product grid */
+    .products-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    /*Right panel*/
+    .right-panel{
+        display: flex;
+       
+    }
+}
+
+
+/* @media is used to create responsive design (making the
+   website look good on any screen size). This @media
+   means when the screen width is 2000px or less, we
+   will divide the grid into 7 columns instead of 8. */
+@media (max-width: 2000px) {
+  .products-grid {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+/* This @media means when the screen width is 1600px or
+   less, we will divide the grid into 6 columns. */
+@media (max-width: 1600px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1300px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1000px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 450px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
 }
