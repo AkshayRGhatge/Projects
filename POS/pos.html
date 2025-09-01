@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-     
+        <meta charset="UTF-8">
         <!--Global Font Link-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,7 +41,7 @@
             <!--Category Placeholder contains the menu category-->  
             <section> 
                 <article>
-                    <h3>Category</h3>
+                    <h2>Category</h2>
                     <div class="category-container">
                     <a href="#" class="category-item">Starter</a>
                     <a href="#" class="category-item">Main</a>
@@ -68,8 +68,10 @@
                         </div>
 
                         <div class="product-quantity-container">
-                            <i class="fa fa-minus-circle"></i>
-                            <select class="js-order-quantity-dropdown-${product.id}">
+                             <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -81,7 +83,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <i class="fa fa-plus-circle"></i>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                         </div>
                     
                         <!--${product.extraInfoHTML()}-->
@@ -111,8 +115,10 @@
                         </div>
 
                         <div class="product-quantity-container">
-                             <i class="fa fa-minus-circle"></i>
-                            <select class="js-order-quantity-dropdown-${product.id}">
+                            <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -124,7 +130,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <i class="fa fa-plus-circle"></i>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                     </div>
                 
                     <!--${product.extraInfoHTML()}-->
@@ -154,8 +162,10 @@
                         </div>
 
                         <div class="product-quantity-container">
-                            <i class="fa fa-minus-circle"></i>
-                            <select class="js-order-quantity-dropdown-${product.id}">
+                             <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -167,7 +177,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <i class="fa fa-plus-circle"></i>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                         </div>
                     
                         <!--${product.extraInfoHTML()}-->
@@ -197,8 +209,10 @@
                         </div>
 
                         <div class="product-quantity-container">
-                            <i class="fa fa-minus-circle"></i>
-                            <select class="js-order-quantity-dropdown-${product.id}">
+                             <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -210,7 +224,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <i class="fa fa-plus-circle"></i>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                         </div>
                     
                         <!--${product.extraInfoHTML()}-->
@@ -240,8 +256,10 @@
                         </div>
 
                         <div class="product-quantity-container">
-                             <i class="fa fa-minus-circle"></i>
-                            <select class="js-order-quantity-dropdown-${product.id}">
+                            <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
                                 <option selected value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -253,7 +271,9 @@
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
-                            <i class="fa fa-plus-circle"></i>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                         </div>
                     
                         <!--${product.extraInfoHTML()}-->
@@ -283,20 +303,24 @@
                         </div>
 
                         <div class="product-quantity-container">
-                             <i class="fa fa-minus-circle"></i>
-                                <select class="js-order-quantity-dropdown-${product.id}">
-                                    <option selected value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            <i class="fa fa-plus-circle"></i>
+                              <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button> 
                         </div>
                     
                         <!--${product.extraInfoHTML()}-->
@@ -317,14 +341,15 @@
     <aside class="right-panel">
         <section class="order-section">
             <article class="order-header">
-                <h3>Order Details</h3>
+                <h2>Order Details</h2>
                 <div class="order-person-info">
                     <h4>Akshay Ghatge</h4>
                     <p>Order ID: 1</p>
+                    <p>31 AUG,2025 11:00AM</p>
                 </div>
             </article>
             <article class="order-items">
-                <h4>Order Items</h4>
+                <h2>Order Items</h2>
                 <div class="order-container">
                    <div class="order-details-section">
                         <div class="order-image-container">
@@ -337,27 +362,61 @@
                     </div>
 
                     <div class="order-qty-price">
-                    <div class="order-quantity-container">
-                        <i class="fa fa-minus-circle"></i>
-                        <select>
-                        <option selected value="1">1</option>
-                        <option value="2">2</option>
-                        <!-- ... -->
-                        <option value="10">10</option>
-                        </select>
-                        <i class="fa fa-plus-circle"></i>
-                    </div>
-                    <div class="order-price">
-                        <p>$14.00</p>
-                    </div>
+                        <div class="order-quantity-container">
+                            <button class="minus-icon">
+                                <i class="fa fa-minus-circle"></i>
+                            </button>
+                            <select>
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                            <button class="plus-icon">
+                                 <i class="fa fa-plus-circle"></i>
+                            </button>      
+                        </div>
+                        <div class="order-price">
+                            <p>$14.00</p>
+                        </div>
                     </div>
 
                     <div class="added-to-cart">
                     <img src="images/icons/checkmark.png" alt="Checkmark">
                     Added
                     </div>
-
                     <button class="add-to-cart-button">Add to Cart</button>
+                </div>
+            </article>
+             <article class="amount-details-placeholder">
+                <div class="subtotal-section">
+                    <h4>Subtotal</h4>
+                    <span>$14.00</span> 
+                </div>
+                <div class="tax-section">
+                    <h4>Tax</h4>
+                    <span>$1.50</span> 
+                </div>
+                <div class="discount-section">
+                    <h4>Discount</h4>
+                    <span>$0</span> 
+                </div>
+                <div class="total-bill">
+                    <h3>Total</h3>
+                    <h3>$15.50</h3>
+                </div>
+                <div class="promo-apply-section">
+                    <input type="text" class="text-box" placeholder="Enter Promo Code" id="promo-code-field">
+                    <button class="apply-button">Apply</button>
+                </div>
+                <div class="proceed-payment-section">
+                    <button class="proceed-payment">Proceed Payment</button>
                 </div>
             </article>
         </section>
