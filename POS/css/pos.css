@@ -124,6 +124,8 @@ a{
     flex: 1;
     flex-direction: column;
     margin-left: 155px;   
+    box-shadow: -2px 0 5px rgba(0,0,0,0.05);
+    border-right: 1px solid var(--color-border);
 }
 
 /* Individual section in the main */
@@ -260,12 +262,10 @@ article {
 .right-panel {
   width: 350px;
   background-color: var(--color-bg);
-  border-left: 1px solid var(--color-border);
   padding: 0px 10px;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.05);
   position: relative;
-  height: 100vh;
   overflow-y: auto;
+  height: 100vh;
 }
 
 /* Section layout */
@@ -415,12 +415,12 @@ article {
 
 /*Amount details container*/
 .amount-details-placeholder{
-  position: sticky;
+  position: fixed;
   bottom: 0;
   border-top: 2px solid rgba(0,0,0,0.1);
   padding: 0.75em;
   background-color: var(--color-bg);
-  margin: 0 -10px;
+  width: -webkit-fill-available;
 }
 
 /* Element in the Amount details section*/
@@ -536,10 +536,6 @@ article {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  .main-content {
-    margin-left: 155px;
-    margin-right: 300px;
-  }
 }
 
 /*===================== Small and med screen (768px and below) ===============================*/
@@ -583,6 +579,7 @@ article {
       width: 100%;
       height: calc(100vh - 60px);
       overflow-y: auto;
+      border-right: none;
     }
 
     /*Product grid */
@@ -604,7 +601,6 @@ article {
         z-index: 1000;
         border-left: none;
         box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-        padding: 20px;
     }
 
     .right-panel.show {
@@ -637,9 +633,8 @@ article {
     }
 
     .amount-details-placeholder {
-      position: sticky;
+      position: fixed;
       bottom: 0;
-      margin: 0 -20px;
       padding: 15px 20px;
     }
 
@@ -673,12 +668,12 @@ article {
 /* Large screens */
 @media (min-width: 1400px) {
   .products-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
 @media (min-width: 1600px) {
   .products-grid {
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(6, 1fr);
   }
 }
