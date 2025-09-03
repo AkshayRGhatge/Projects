@@ -1,4 +1,4 @@
-  // Mobile menu toggle
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const cartToggle = document.getElementById('cart-toggle');
