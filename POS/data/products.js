@@ -934,7 +934,7 @@ export const Products = [
       "canned",
       "alcoholic"
     ],
-    category:'Drinks'
+    category:'Drink'
   },
   {
     id: "f43638ce-327a-4ec4-896f-486349e85a3d",
@@ -948,7 +948,7 @@ export const Products = [
       "lager",
       "alcoholic"
     ],
-    category:'Drinks'
+    category:'Drink'
   },
   {
     id: "f43638ce-0f35-48f5-b7a3-1ea210004f2e",
@@ -962,7 +962,7 @@ export const Products = [
       "indian",
       "hot beverage"
     ],
-    category:'Drinks'
+    category:'Drink'
   },
   {
     id: "f43638ce-8f36-462b-b68a-8182611d9add",
@@ -976,7 +976,7 @@ export const Products = [
       "creamy",
       "refreshing"
     ],
-    category:'Drinks'
+    category:'Drink'
   },
   {
     id: "f43638ce-64d2-4137-8860-1f5a963e534b",
@@ -990,7 +990,7 @@ export const Products = [
       "classic",
       "refreshing"
     ],
-    category:'Drinks'
+    category:'Drink'
   },
   {
     id: "f43638ce-5a19-4bcb-a5d1-158a74287c53",
@@ -1004,7 +1004,7 @@ export const Products = [
       "light beer",
       "bottle"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-a18b-4e2a-9250-31e67412f98d",
@@ -1018,7 +1018,7 @@ export const Products = [
       "canned",
       "sugar free"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-0e56-475b-adde-4f24dfed3a04",
@@ -1032,7 +1032,7 @@ export const Products = [
       "lager",
       "premium"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-9a15-4979-b459-585b0d0545b9",
@@ -1046,7 +1046,7 @@ export const Products = [
       "tangy",
       "summer drink"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-e98c-42aa-8c55-b6b79996769a",
@@ -1060,7 +1060,7 @@ export const Products = [
       "indian",
       "creamy"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-4d27-4872-89f6-5bcb052746d7",
@@ -1074,7 +1074,7 @@ export const Products = [
       "antioxidant",
       "healthy"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-ea98-41ee-9285-b916638cac4a",
@@ -1088,7 +1088,7 @@ export const Products = [
       "street drink",
       "refreshing"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-bc79-49c6-bc11-1af7e3651358",
@@ -1102,7 +1102,7 @@ export const Products = [
       "canned",
       "classic"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-386d-432e-82f0-6fb1ee7bf969",
@@ -1116,7 +1116,7 @@ export const Products = [
       "savory",
       "traditional"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-ebc9-476a-989c-c78a40ee5cd9",
@@ -1130,7 +1130,7 @@ export const Products = [
       "fruity",
       "non alcoholic"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-aff4-435f-9975-517cfaba2ece",
@@ -1144,7 +1144,7 @@ export const Products = [
       "cocktail",
       "premium"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-f540-454e-8a1e-363f25dbae7d",
@@ -1158,7 +1158,7 @@ export const Products = [
       "natural",
       "hydrating"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-3067-4e68-a5ba-d827ac0be010",
@@ -1172,7 +1172,7 @@ export const Products = [
       "clear",
       "citrus"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
   {
     id: "f43638ce-1377-42bc-89a5-e572d19252e2",
@@ -1186,7 +1186,7 @@ export const Products = [
       "virgin",
       "refreshing"
     ],
-    category:'Drinks',
+    category:'Drink',
   },
     {
     id: "j43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -1715,7 +1715,7 @@ export const Products = [
     category:'Main',
   },  {
     id: "h43638ce-6aa0-4b85-b27f-e1d07eb678c6",
-    image: "img/sides/asparagus-subzi.jpg.jpg",
+    image: "img/sides/asparagus-subzi.jpg",
     name: "Asparagus Subzi",
     priceCents: 650,
     keywords: [
@@ -1726,7 +1726,7 @@ export const Products = [
       "healthy",
       "green"
     ],
-    category:'Sides'
+    category:'Side'
   },
   {
     id: "h43638ce-327a-4ec4-896f-486349e85a3d",
@@ -1741,7 +1741,7 @@ export const Products = [
       "green",
       "cruciferous"
     ],
-    category:'Sides'
+    category:'Side'
   },
   {
     id: "h43638ce-0f35-48f5-b7a3-1ea210004f2e",
@@ -1757,7 +1757,7 @@ export const Products = [
       "fresh",
       "herbs"
     ],
-    category:'Sides'
+    category:'Side'
   },
   {
     id: "h43638ce-8f36-462b-b68a-8182611d9add",
@@ -1773,7 +1773,7 @@ export const Products = [
       "refreshing",
       "vegetables"
     ],
-    category:'Sides'
+    category:'Side'
   },
   {
     id: "h43638ce-64d2-4137-8860-1f5a963e534b",
@@ -1788,7 +1788,7 @@ export const Products = [
       "condiment",
       "artisanal"
     ],
-    category:'Sides'
+    category:'Side'
   },
   {
     id: "h43638ce-5a19-4bcb-a5d1-158a74287c53",
@@ -1804,7 +1804,7 @@ export const Products = [
       "spicy",
       "appetizer"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-a18b-4e2a-9250-31e67412f98d",
@@ -1820,7 +1820,7 @@ export const Products = [
       "traditional",
       "snack"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-0e56-475b-adde-4f24dfed3a04",
@@ -1835,7 +1835,7 @@ export const Products = [
       "crispy",
       "street food"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-9a15-4979-b459-585b0d0545b9",
@@ -1851,7 +1851,7 @@ export const Products = [
       "crispy",
       "traditional"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-e98c-42aa-8c55-b6b79996769a",
@@ -1867,7 +1867,7 @@ export const Products = [
       "healthy",
       "traditional"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-4d27-4872-89f6-5bcb052746d7",
@@ -1883,7 +1883,7 @@ export const Products = [
       "chaat",
       "appetizer"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-ea98-41ee-9285-b916638cac4a",
@@ -1899,7 +1899,7 @@ export const Products = [
       "snack",
       "traditional"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-bc79-49c6-bc11-1af7e3651358",
@@ -1915,7 +1915,7 @@ export const Products = [
       "side dish",
       "healthy"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-386d-432e-82f0-6fb1ee7bf969",
@@ -1931,7 +1931,7 @@ export const Products = [
       "traditional",
       "staple"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-ebc9-476a-989c-c78a40ee5cd9",
@@ -1947,7 +1947,7 @@ export const Products = [
       "mediterranean",
       "baked"
     ],
-    category:'Sides',
+    category:'Side',
   },
   {
     id: "h43638ce-aff4-435f-9975-517cfaba2ece",
@@ -1963,7 +1963,7 @@ export const Products = [
       "protein",
       "Mediterranean"
     ],
-    category:'Sides',
+    category:'Side',
   },
     {
     id: "g43638ce-6aa0-4b85-b27f-e1d07eb678c6",

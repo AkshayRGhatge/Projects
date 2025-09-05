@@ -52,58 +52,13 @@
                         <a href="#" class="category-item js-category-item">Side</a>
                         <a href="#" class="category-item js-category-item">Drink</a>
                         <a href="#" class="category-item js-category-item">Desserts</a>
+                        <a href="#" class="category-item js-category-item">All</a>
                     </div>
                 </article>
 
                 <!--Menu Product section-->  
-                <div class="products-grid">
-                    <div class="product-container">
-                        <div class="product-image-container">
-                            <img class="product-image"
-                            src="img/curries/aloo-chana-recipe.jpg">
-                        </div>
-                        <div class="product-name">
-                            Aloo Chana
-                        </div>
-
-                        <div class="product-price">
-                            $12.00
-                        </div>
-
-                        <div class="product-quantity-container">
-                             <button class="minus-icon">
-                                <i class="fa fa-minus-circle"></i>
-                            </button>
-                            <select>
-                                <option selected value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <button class="plus-icon">
-                                 <i class="fa fa-plus-circle"></i>
-                            </button> 
-                        </div>
+                <div class="products-grid js-product-grid">
                     
-                         <!--${product.extraInfoHTML()}-->
-                        
-                        <div class="product-spacer"></div>
-
-                        <div class="added-to-cart js-added-to-cart">
-                            <i class="fas fa-check-circle"></i>
-                            Added
-                        </div>
-
-                        <button class="add-to-cart-button js-add-to-cart-button button-primary">
-                            Add to Cart
-                        </button>
-                    </div>
                     <div class="product-container">
                         <div class="product-image-container">
                             <img class="product-image"
@@ -427,5 +382,5 @@
     </body>
     <!--JS Reference-->
     <script src="scripts/menu.js"></script>
-    <script src="scripts/pos.js"></script>
+    <script type="module" src="scripts/pos.js"></script>
 </html>
