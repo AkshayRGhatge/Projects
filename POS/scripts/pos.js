@@ -1,4 +1,6 @@
 import { Products } from "../data/products.js";
+import { formatCurrency } from "../scripts/utils/money.js";
+
 //Add the click event listener for all the add buttons
 document.querySelectorAll('.js-add-to-cart-button').forEach(button => {
     button.addEventListener('click', (e) => {
@@ -18,6 +20,15 @@ document.querySelectorAll('.js-add-to-cart-button').forEach(button => {
 const getCategories=document.querySelectorAll('.js-category-item');//Variables to get the menu categoryItem
 const getProductGrid=document.querySelector('.js-product-grid');
 
+//ON the load of the dom click the Starter item
+document.addEventListener('DOMContentLoaded', function(){
+    getCategories.forEach(item=>{
+        if(item.textContent==="Starter")
+        {
+            item.click();
+        }
+    })
+})
 
 //Loop through each category item and add click event listener
 getCategories.forEach(categoryItem=>{
@@ -37,10 +48,19 @@ getCategories.forEach(categoryItem=>{
         //Get the category Item textcontent
         const categoryTextContent=targetCategory.innerText;
 
-        //filter the products array with the category text content
-        const getFilterItems=Products.filter((filterProductItem)=>{
-           return filterProductItem.category===categoryTextContent
-        })
+        let getFilterItems='';
+        if(categoryTextContent === "All")
+        {
+            getFilterItems=[...Products];
+            console.log(getFilterItems);
+        }
+        else{ 
+             //filter the products array with the category text content
+            getFilterItems=Products.filter((filterProductItem)=>{
+                return filterProductItem.category===categoryTextContent
+            })
+        }
+       
 
         //loop through the filter item array and generate the html
         getFilterItems.forEach((productItems)=>{
@@ -55,7 +75,7 @@ getCategories.forEach(categoryItem=>{
                     </div>
 
                     <div class="product-price">
-                        $12.00
+                        $${formatCurrency(productItems.priceCents)}
                     </div>
 
                     <div class="product-quantity-container">
@@ -97,5 +117,4 @@ getCategories.forEach(categoryItem=>{
         getProductGrid.innerHTML=getProductItemHtml;
     })
 })
-
 

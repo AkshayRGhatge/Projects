@@ -210,13 +210,13 @@ article {
 }
 /* Product label */
 .product-name {
-  height: 20px;
-  margin-bottom: 5px;
+  margin-top: 15px;
+  height: 40px;
 }
 
 /* Product price */
 .product-price {
-  margin-bottom: 15px;
+  margin-top: 15px;
   color: var(--color-success)
 }
 
@@ -229,7 +229,7 @@ article {
 
 /* Product quantity */
 .product-quantity-container {
-  margin-bottom: 17px;
+  margin-top: 17px;
   gap:8px;
 }
 
