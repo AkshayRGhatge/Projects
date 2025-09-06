@@ -5,6 +5,8 @@ export const Products = [
     name: "Aloo Chana",
     priceCents: 1450,
     keywords: [
+      "aloo",
+      "chana",
       "potato",
       "chickpea",
       "curry",
@@ -19,6 +21,8 @@ export const Products = [
     name: "Aloo Matar",
     priceCents: 1675,
     keywords: [
+      "aloo",
+      "matar",
       "potato",
       "peas",
       "curry",
@@ -33,6 +37,8 @@ export const Products = [
     name: "Aloo Palak",
     priceCents: 1320,
     keywords: [
+      "aloo",
+      "palak",
       "potato",
       "spinach",
       "curry",
@@ -47,6 +53,8 @@ export const Products = [
     name: "Aloo Puri",
     priceCents: 1890,
     keywords: [
+      "aloo",
+      "puri",
       "potato",
       "bread",
       "fried",
@@ -61,6 +69,8 @@ export const Products = [
     name: "Baingan Bharta",
     priceCents: 1545,
     keywords: [
+      "baingan",
+      "bharta",
       "eggplant",
       "roasted",
       "curry",
@@ -75,7 +85,9 @@ export const Products = [
     name: "Black Eyed Peas Curry",
     priceCents: 1275,
     keywords: [
-      "black eyed peas",
+      "black",
+      "eyed",
+      "peas",
       "curry",
       "protein",
       "healthy",
@@ -89,9 +101,9 @@ export const Products = [
     name: "Capsicum Curry",
     priceCents: 1425,
     keywords: [
-      "bell pepper",
       "capsicum",
       "curry",
+      "bell pepper",
       "colorful",
       "vegetarian"
     ],
@@ -103,6 +115,8 @@ export const Products = [
     name: "Chana Palak",
     priceCents: 1650,
     keywords: [
+      "chana",
+      "palak",
       "chickpea",
       "spinach",
       "curry",
@@ -117,6 +131,8 @@ export const Products = [
     name: "Chana Saag",
     priceCents: 1580,
     keywords: [
+      "chana",
+      "saag",
       "chickpea",
       "greens",
       "curry",
@@ -132,7 +148,8 @@ export const Products = [
     priceCents: 1795,
     keywords: [
       "chickpea",
-      "tikka masala",
+      "tikka",
+      "masala",
       "creamy",
       "tomato",
       "spiced"
@@ -145,6 +162,7 @@ export const Products = [
     name: "Chole",
     priceCents: 1380,
     keywords: [
+      "chole",
       "chickpea",
       "punjabi",
       "spicy",
@@ -159,6 +177,8 @@ export const Products = [
     name: "Chole Bhature",
     priceCents: 1920,
     keywords: [
+      "chole",
+      "bhature",
       "chickpea",
       "fried bread",
       "punjabi",
@@ -173,8 +193,9 @@ export const Products = [
     name: "Chole Paneer",
     priceCents: 1750,
     keywords: [
-      "chickpea",
+      "chole",
       "paneer",
+      "chickpea",
       "cheese",
       "protein",
       "rich"
@@ -187,6 +208,8 @@ export const Products = [
     name: "Dahi Aloo",
     priceCents: 1290,
     keywords: [
+      "dahi",
+      "aloo",
       "potato",
       "yogurt",
       "tangy",
@@ -201,6 +224,8 @@ export const Products = [
     name: "Dahi Arbi",
     priceCents: 1495,
     keywords: [
+      "dahi",
+      "arbi",
       "taro root",
       "yogurt",
       "tangy",
@@ -215,6 +240,8 @@ export const Products = [
     name: "Dahi Bhindi",
     priceCents: 1365,
     keywords: [
+      "dahi",
+      "bhindi",
       "okra",
       "yogurt",
       "tangy",
@@ -229,8 +256,10 @@ export const Products = [
     name: "Hyderabadi Bagara Baingan",
     priceCents: 1825,
     keywords: [
-      "eggplant",
       "hyderabadi",
+      "bagara",
+      "baingan",
+      "eggplant",
       "royal",
       "spiced",
       "traditional"
@@ -243,8 +272,11 @@ export const Products = [
     name: "Instant Pot Kala Chana",
     priceCents: 1560,
     keywords: [
+      "instant",
+      "pot",
+      "kala",
+      "chana",
       "black chickpea",
-      "instant pot",
       "quick",
       "healthy",
       "protein"
@@ -257,8 +289,9 @@ export const Products = [
     name: "Jain Chole",
     priceCents: 1435,
     keywords: [
-      "chickpea",
       "jain",
+      "chole",
+      "chickpea",
       "no onion",
       "no garlic",
       "special diet"
@@ -271,9 +304,9 @@ export const Products = [
     name: "Kadai Paneer",
     priceCents: 1780,
     keywords: [
+      "kadai",
       "paneer",
       "bell pepper",
-      "kadai",
       "spicy",
       "restaurant style"
     ],
@@ -285,6 +318,8 @@ export const Products = [
     name: "Kaju Curry",
     priceCents: 1950,
     keywords: [
+      "kaju",
+      "curry",
       "cashew",
       "rich",
       "creamy",
@@ -299,8 +334,9 @@ export const Products = [
     name: "Lauki Kofta",
     priceCents: 1615,
     keywords: [
-      "bottle gourd",
+      "lauki",
       "kofta",
+      "bottle gourd",
       "dumpling",
       "gravy",
       "vegetarian"
@@ -313,8 +349,9 @@ export const Products = [
     name: "Malai Kofta",
     priceCents: 1875,
     keywords: [
-      "cottage cheese",
+      "malai",
       "kofta",
+      "cottage cheese",
       "creamy",
       "rich",
       "restaurant favorite"
@@ -327,8 +364,9 @@ export const Products = [
     name: "Matar Paneer",
     priceCents: 1690,
     keywords: [
-      "peas",
+      "matar",
       "paneer",
+      "peas",
       "tomato gravy",
       "classic",
       "homestyle"
@@ -341,6 +379,9 @@ export const Products = [
     name: "Methi Matar Malai",
     priceCents: 1720,
     keywords: [
+      "methi",
+      "matar",
+      "malai",
       "fenugreek",
       "peas",
       "cream",
@@ -356,8 +397,8 @@ export const Products = [
     priceCents: 1405,
     keywords: [
       "mushroom",
-      "earthy",
       "curry",
+      "earthy",
       "umami",
       "vegetarian"
     ],
@@ -370,6 +411,7 @@ export const Products = [
     priceCents: 1525,
     keywords: [
       "mushroom",
+      "matar",
       "peas",
       "curry",
       "healthy",
@@ -384,8 +426,8 @@ export const Products = [
     priceCents: 1340,
     keywords: [
       "okra",
-      "bhindi",
       "curry",
+      "bhindi",
       "crispy",
       "vegetarian"
     ],
@@ -397,8 +439,9 @@ export const Products = [
     name: "Palak Paneer",
     priceCents: 1665,
     keywords: [
-      "spinach",
+      "palak",
       "paneer",
+      "spinach",
       "green",
       "healthy",
       "iron rich"
@@ -412,8 +455,9 @@ export const Products = [
     priceCents: 1590,
     keywords: [
       "paneer",
-      "scrambled",
+      "bhurji",
       "gravy",
+      "scrambled",
       "spiced",
       "comfort food"
     ],
@@ -427,6 +471,7 @@ export const Products = [
     keywords: [
       "paneer",
       "butter",
+      "masala",
       "tomato",
       "creamy",
       "popular"
@@ -440,8 +485,9 @@ export const Products = [
     priceCents: 1730,
     keywords: [
       "paneer",
+      "do",
+      "pyaza",
       "onion",
-      "do pyaza",
       "aromatic",
       "restaurant style"
     ],
@@ -454,6 +500,7 @@ export const Products = [
     priceCents: 1805,
     keywords: [
       "paneer",
+      "lababdar",
       "rich",
       "creamy",
       "tomato",
@@ -509,8 +556,9 @@ export const Products = [
     name: "Saag Paneer",
     priceCents: 1710,
     keywords: [
-      "greens",
+      "saag",
       "paneer",
+      "greens",
       "nutritious",
       "punjabi",
       "healthy"
@@ -523,6 +571,9 @@ export const Products = [
     name: "Sarson Ka Saag",
     priceCents: 1460,
     keywords: [
+      "sarson",
+      "ka",
+      "saag",
       "mustard greens",
       "punjabi",
       "winter",
@@ -537,6 +588,7 @@ export const Products = [
     name: "Shahi Paneer",
     priceCents: 1990,
     keywords: [
+      "shahi",
       "paneer",
       "royal",
       "rich",
@@ -551,6 +603,7 @@ export const Products = [
     name: "Undhiyu",
     priceCents: 1820,
     keywords: [
+      "undhiyu",
       "mixed vegetables",
       "gujarati",
       "winter",
@@ -565,9 +618,11 @@ export const Products = [
     name: "Vrat Wale Aloo",
     priceCents: 1385,
     keywords: [
+      "vrat",
+      "wale",
+      "aloo",
       "fasting",
       "potato",
-      "vrat",
       "religious",
       "simple"
     ],
@@ -580,7 +635,9 @@ export const Products = [
     priceCents: 1755,
     keywords: [
       "paneer",
-      "white beans",
+      "white",
+      "bean",
+      "curry",
       "protein rich",
       "fusion",
       "nutritious"
@@ -607,8 +664,9 @@ export const Products = [
     name: "Besan Barfi",
     priceCents: 950,
     keywords: [
-      "gram flour",
+      "besan",
       "barfi",
+      "gram flour",
       "traditional",
       "sweet",
       "homemade"
@@ -636,8 +694,9 @@ export const Products = [
     priceCents: 1475,
     keywords: [
       "chocolate",
-      "pistachio",
+      "pista",
       "rolls",
+      "pistachio",
       "premium",
       "elegant"
     ],
@@ -677,8 +736,8 @@ export const Products = [
     name: "Fried Modak",
     priceCents: 1075,
     keywords: [
-      "modak",
       "fried",
+      "modak",
       "crispy",
       "ganesh",
       "traditional"
@@ -692,6 +751,7 @@ export const Products = [
     priceCents: 1320,
     keywords: [
       "gond",
+      "ke",
       "laddu",
       "winter",
       "healthy",
@@ -719,7 +779,8 @@ export const Products = [
     name: "Gulab Jamun",
     priceCents: 1025,
     keywords: [
-      "gulab jamun",
+      "gulab",
+      "jamun",
       "syrup",
       "soft",
       "popular",
@@ -733,6 +794,7 @@ export const Products = [
     name: "Kheer",
     priceCents: 875,
     keywords: [
+      "kheer",
       "rice pudding",
       "milk",
       "creamy",
@@ -831,7 +893,8 @@ export const Products = [
     name: "Puran Poli",
     priceCents: 1095,
     keywords: [
-      "puran poli",
+      "puran",
+      "poli",
       "lentil",
       "jaggery",
       "maharashtrian",
@@ -901,8 +964,10 @@ export const Products = [
     name: "Singhare Ka Halwa",
     priceCents: 1120,
     keywords: [
-      "water chestnut",
+      "singhare",
+      "ka",
       "halwa",
+      "water chestnut",
       "fasting",
       "vrat",
       "special"
@@ -915,8 +980,8 @@ export const Products = [
     name: "Steamed Modak",
     priceCents: 975,
     keywords: [
-      "modak",
       "steamed",
+      "modak",
       "rice flour",
       "ganesh",
       "healthy"
@@ -928,8 +993,10 @@ export const Products = [
     name: "Blue Moon Can",
     priceCents: 925,
     keywords: [
+      "blue",
+      "moon",
+      "can",
       "beer",
-      "blue moon",
       "wheat beer",
       "canned",
       "alcoholic"
@@ -942,9 +1009,10 @@ export const Products = [
     name: "Canadian Molson Can",
     priceCents: 850,
     keywords: [
-      "beer",
-      "molson",
       "canadian",
+      "molson",
+      "can",
+      "beer",
       "lager",
       "alcoholic"
     ],
@@ -956,8 +1024,9 @@ export const Products = [
     name: "Masala Chai",
     priceCents: 675,
     keywords: [
-      "tea",
+      "masala",
       "chai",
+      "tea",
       "spiced",
       "indian",
       "hot beverage"
@@ -970,6 +1039,7 @@ export const Products = [
     name: "Cocolada",
     priceCents: 795,
     keywords: [
+      "cocolada",
       "coconut",
       "tropical",
       "cocktail",
@@ -984,7 +1054,9 @@ export const Products = [
     name: "Coca Cola",
     priceCents: 620,
     keywords: [
+      "coca",
       "cola",
+      "coke",
       "soda",
       "carbonated",
       "classic",
@@ -998,11 +1070,11 @@ export const Products = [
     name: "Corona Bottle",
     priceCents: 980,
     keywords: [
-      "beer",
       "corona",
+      "bottle",
+      "beer",
       "mexican",
-      "light beer",
-      "bottle"
+      "light beer"
     ],
     category:'Drink',
   },
@@ -1012,6 +1084,9 @@ export const Products = [
     name: "Diet Coke Can",
     priceCents: 575,
     keywords: [
+      "diet",
+      "coke",
+      "can",
       "diet cola",
       "zero calories",
       "carbonated",
@@ -1026,8 +1101,9 @@ export const Products = [
     name: "Kingfisher Bottle",
     priceCents: 895,
     keywords: [
-      "beer",
       "kingfisher",
+      "bottle",
+      "beer",
       "indian",
       "lager",
       "premium"
@@ -1040,9 +1116,9 @@ export const Products = [
     name: "Fresh Lemonade",
     priceCents: 650,
     keywords: [
+      "fresh",
       "lemonade",
       "citrus",
-      "fresh",
       "tangy",
       "summer drink"
     ],
@@ -1054,8 +1130,8 @@ export const Products = [
     name: "Mango Lassi",
     priceCents: 745,
     keywords: [
-      "lassi",
       "mango",
+      "lassi",
       "yogurt drink",
       "indian",
       "creamy"
@@ -1068,8 +1144,8 @@ export const Products = [
     name: "Masala Pomegranate",
     priceCents: 720,
     keywords: [
-      "pomegranate",
       "masala",
+      "pomegranate",
       "spiced",
       "antioxidant",
       "healthy"
@@ -1082,7 +1158,8 @@ export const Products = [
     name: "Masala Soda & Shikanji",
     priceCents: 690,
     keywords: [
-      "masala soda",
+      "masala",
+      "soda",
       "shikanji",
       "spiced",
       "street drink",
@@ -1096,8 +1173,9 @@ export const Products = [
     name: "Pepsi Can",
     priceCents: 595,
     keywords: [
-      "cola",
       "pepsi",
+      "can",
+      "cola",
       "carbonated",
       "canned",
       "classic"
@@ -1110,8 +1188,8 @@ export const Products = [
     name: "Salted Lassi",
     priceCents: 725,
     keywords: [
-      "lassi",
       "salted",
+      "lassi",
       "yogurt drink",
       "savory",
       "traditional"
@@ -1124,8 +1202,9 @@ export const Products = [
     name: "Sparkling Grapes",
     priceCents: 775,
     keywords: [
-      "grape juice",
       "sparkling",
+      "grapes",
+      "grape juice",
       "fizzy",
       "fruity",
       "non alcoholic"
@@ -1138,8 +1217,9 @@ export const Products = [
     name: "Spicy Herbaceous Margarita",
     priceCents: 995,
     keywords: [
-      "margarita",
       "spicy",
+      "herbaceous",
+      "margarita",
       "herbs",
       "cocktail",
       "premium"
@@ -1152,8 +1232,8 @@ export const Products = [
     name: "Spring Water",
     priceCents: 525,
     keywords: [
+      "spring",
       "water",
-      "spring water",
       "pure",
       "natural",
       "hydrating"
@@ -1166,8 +1246,8 @@ export const Products = [
     name: "Sprite",
     priceCents: 610,
     keywords: [
-      "lemon lime",
       "sprite",
+      "lemon lime",
       "carbonated",
       "clear",
       "citrus"
@@ -1180,10 +1260,10 @@ export const Products = [
     name: "Virgin Mojito",
     priceCents: 765,
     keywords: [
+      "virgin",
       "mojito",
       "mint",
       "lime",
-      "virgin",
       "refreshing"
     ],
     category:'Drink',
@@ -1212,6 +1292,8 @@ export const Products = [
     keywords: [
       "aloo",
       "bhindi",
+      "ki",
+      "subzi",
       "okra",
       "potato",
       "curry",
@@ -1244,7 +1326,8 @@ export const Products = [
     priceCents: 1300,
     keywords: [
       "amritsari",
-      "aloo kulcha",
+      "aloo",
+      "kulcha",
       "potato",
       "stuffed bread",
       "punjabi",
@@ -1259,7 +1342,8 @@ export const Products = [
     name: "Bagara Rice",
     priceCents: 1000,
     keywords: [
-      "bagara rice",
+      "bagara",
+      "rice",
       "hyderabadi",
       "aromatic rice",
       "basmati",
@@ -1276,7 +1360,8 @@ export const Products = [
     priceCents: 1050,
     keywords: [
       "bengali",
-      "masoor dal",
+      "masoor",
+      "dal",
       "red lentils",
       "bengali cuisine",
       "protein rich",
@@ -1290,7 +1375,8 @@ export const Products = [
     name: "Bharli Vangi",
     priceCents: 1200,
     keywords: [
-      "bharli vangi",
+      "bharli",
+      "vangi",
       "stuffed eggplant",
       "maharashtrian",
       "spiced",
@@ -1305,7 +1391,8 @@ export const Products = [
     name: "Bombay Aloo",
     priceCents: 1100,
     keywords: [
-      "bombay aloo",
+      "bombay",
+      "aloo",
       "potato curry",
       "spiced potatoes",
       "indian",
@@ -1320,7 +1407,8 @@ export const Products = [
     name: "Cauliflower Kofta",
     priceCents: 1350,
     keywords: [
-      "cauliflower kofta",
+      "cauliflower",
+      "kofta",
       "vegetarian kofta",
       "dumplings",
       "curry",
@@ -1337,7 +1425,8 @@ export const Products = [
     priceCents: 1250,
     keywords: [
       "cheese",
-      "pav bhaji",
+      "pav",
+      "bhaji",
       "sandwich",
       "street food",
       "mumbai",
@@ -1353,6 +1442,8 @@ export const Products = [
     priceCents: 1500,
     keywords: [
       "chettinad",
+      "veg",
+      "biryani",
       "vegetable biryani",
       "south indian",
       "spicy",
@@ -1367,7 +1458,8 @@ export const Products = [
     name: "Dal Biryani",
     priceCents: 1400,
     keywords: [
-      "dal biryani",
+      "dal",
+      "biryani",
       "lentil biryani",
       "protein rich",
       "aromatic",
@@ -1383,9 +1475,9 @@ export const Products = [
     priceCents: 1000,
     keywords: [
       "dhapate",
+      "spicy",
       "maharashtrian",
       "flatbread",
-      "spicy",
       "traditional",
       "rustic bread"
     ],
@@ -1397,7 +1489,9 @@ export const Products = [
     name: "Gutti Vankaya Kura",
     priceCents: 1300,
     keywords: [
-      "gutti vankaya",
+      "gutti",
+      "vankaya",
+      "kura",
       "stuffed eggplant",
       "andhra",
       "telugu cuisine",
@@ -1412,7 +1506,10 @@ export const Products = [
     name: "Hara Butter Paneer Masala",
     priceCents: 1600,
     keywords: [
-      "hara butter paneer",
+      "hara",
+      "butter",
+      "paneer",
+      "masala",
       "green paneer",
       "cottage cheese",
       "creamy",
@@ -1428,7 +1525,8 @@ export const Products = [
     priceCents: 1150,
     keywords: [
       "hyderabadi",
-      "khatti dal",
+      "khatti",
+      "dal",
       "tangy lentils",
       "sour dal",
       "traditional",
@@ -1442,7 +1540,9 @@ export const Products = [
     name: "Hyderabadi Veg Biryani Thali",
     priceCents: 1800,
     keywords: [
-      "hyderabadi biryani",
+      "hyderabadi",
+      "veg",
+      "biryani",
       "thali",
       "complete meal",
       "vegetarian",
@@ -1459,7 +1559,9 @@ export const Products = [
     priceCents: 1650,
     keywords: [
       "kashmiri",
-      "paneer tikka masala",
+      "paneer",
+      "tikka",
+      "masala",
       "cottage cheese",
       "rich",
       "creamy",
@@ -1474,7 +1576,8 @@ export const Products = [
     name: "Keema Paratha",
     priceCents: 1400,
     keywords: [
-      "keema paratha",
+      "keema",
+      "paratha",
       "stuffed paratha",
       "minced vegetables",
       "flatbread",
@@ -1489,7 +1592,9 @@ export const Products = [
     name: "Kerala Vegetable Biryani",
     priceCents: 1550,
     keywords: [
-      "kerala biryani",
+      "kerala",
+      "vegetable",
+      "biryani",
       "coconut",
       "south indian",
       "vegetarian",
@@ -1505,7 +1610,8 @@ export const Products = [
     priceCents: 1300,
     keywords: [
       "lahori",
-      "dum aloo",
+      "dum",
+      "aloo",
       "potato curry",
       "rich",
       "punjabi",
@@ -1521,7 +1627,8 @@ export const Products = [
     priceCents: 1700,
     keywords: [
       "makhani",
-      "paneer biryani",
+      "paneer",
+      "biryani",
       "butter paneer",
       "rich",
       "creamy",
@@ -1537,7 +1644,8 @@ export const Products = [
     priceCents: 1200,
     keywords: [
       "methi",
-      "chana pulao",
+      "chana",
+      "pulao",
       "fenugreek",
       "chickpea",
       "rice",
@@ -1552,10 +1660,12 @@ export const Products = [
     name: "Methi Paneer Dry Curry",
     priceCents: 1450,
     keywords: [
-      "methi paneer",
+      "methi",
+      "paneer",
+      "dry",
+      "curry",
       "fenugreek",
       "cottage cheese",
-      "dry curry",
       "healthy",
       "north indian"
     ],
@@ -1567,7 +1677,8 @@ export const Products = [
     name: "Mixed Vegetable Curry",
     priceCents: 1100,
     keywords: [
-      "mixed vegetables",
+      "mixed",
+      "vegetable",
       "curry",
       "healthy",
       "colorful",
@@ -1598,7 +1709,8 @@ export const Products = [
     name: "Paneer Sandwich",
     priceCents: 1200,
     keywords: [
-      "paneer sandwich",
+      "paneer",
+      "sandwich",
       "cottage cheese",
       "grilled",
       "indian fusion",
@@ -1613,7 +1725,8 @@ export const Products = [
     name: "Pav Bhaji",
     priceCents: 1250,
     keywords: [
-      "pav bhaji",
+      "pav",
+      "bhaji",
       "mumbai street food",
       "vegetable curry",
       "bread rolls",
@@ -1628,7 +1741,8 @@ export const Products = [
     name: "Potato Curry",
     priceCents: 1000,
     keywords: [
-      "potato curry",
+      "potato",
+      "curry",
       "aloo curry",
       "vegetarian",
       "spiced",
@@ -1644,7 +1758,8 @@ export const Products = [
     priceCents: 1450,
     keywords: [
       "pudina",
-      "paneer pulao",
+      "paneer",
+      "pulao",
       "mint",
       "cottage cheese",
       "rice",
@@ -1659,7 +1774,8 @@ export const Products = [
     name: "Qabooli Biryani",
     priceCents: 1500,
     keywords: [
-      "qabooli biryani",
+      "qabooli",
+      "biryani",
       "kabuli chana",
       "chickpea biryani",
       "protein rich",
@@ -1674,7 +1790,8 @@ export const Products = [
     name: "Shahi Paneer",
     priceCents: 1600,
     keywords: [
-      "shahi paneer",
+      "shahi",
+      "paneer",
       "royal paneer",
       "cottage cheese",
       "rich",
@@ -1690,7 +1807,9 @@ export const Products = [
     name: "Vegetable Dum Biryani",
     priceCents: 1500,
     keywords: [
-      "vegetable biryani",
+      "vegetable",
+      "dum",
+      "biryani",
       "dum cooked",
       "aromatic",
       "basmati rice",
@@ -1705,7 +1824,8 @@ export const Products = [
     name: "Vegetable Vindaloo",
     priceCents: 1350,
     keywords: [
-      "vegetable vindaloo",
+      "vegetable",
+      "vindaloo",
       "goan",
       "spicy",
       "tangy",
@@ -1734,7 +1854,8 @@ export const Products = [
     name: "Brussels Sprouts",
     priceCents: 550,
     keywords: [
-      "brussels sprouts",
+      "brussels",
+      "sprouts",
       "vegetable",
       "roasted",
       "healthy",
@@ -1749,9 +1870,9 @@ export const Products = [
     name: "Cilantro Mint Chutney",
     priceCents: 350,
     keywords: [
-      "chutney",
       "cilantro",
       "mint",
+      "chutney",
       "condiment",
       "indian",
       "fresh",
@@ -1759,7 +1880,7 @@ export const Products = [
     ],
     category:'Side'
   },
-  {
+   {
     id: "h43638ce-8f36-462b-b68a-8182611d9add",
     image: "img/sides/cucumber-salad.jpg",
     name: "Cucumber Salad",
@@ -1812,7 +1933,8 @@ export const Products = [
     name: "Kothimbir Wadi",
     priceCents: 500,
     keywords: [
-      "kothimbir wadi",
+      "kothimbir",
+      "wadi",
       "cilantro",
       "fritters",
       "maharashtrian",
@@ -1828,7 +1950,8 @@ export const Products = [
     name: "Masala Fries",
     priceCents: 600,
     keywords: [
-      "masala fries",
+      "masala",
+      "fries",
       "potato",
       "spiced",
       "indian fusion",
@@ -1843,7 +1966,8 @@ export const Products = [
     name: "Medu Vada",
     priceCents: 700,
     keywords: [
-      "medu vada",
+      "medu",
+      "vada",
       "lentil",
       "donut",
       "south indian",
@@ -1989,7 +2113,8 @@ export const Products = [
       "chaat",
       "street food",
       "tangy",
-      "spicy"
+      "spicy",
+      "Aloo"
     ],
     category:'Starter'
   },
@@ -2003,7 +2128,8 @@ export const Products = [
       "pakora",
       "fritters",
       "crispy",
-      "monsoon snack"
+      "monsoon snack",
+      "Aloo"
     ],
     category:'Starter'
   },
@@ -2042,6 +2168,7 @@ export const Products = [
     priceCents: 720,
     keywords: [
       "potato",
+      "Batata",
       "vada",
       "maharashtrian",
       "fried",
@@ -2111,7 +2238,8 @@ export const Products = [
     name: "Creamy Tomato Soup",
     priceCents: 855,
     keywords: [
-      "tomato soup",
+      "tomato",
+      "soup",
       "creamy",
       "comfort food",
       "warm",
@@ -2126,6 +2254,7 @@ export const Products = [
     priceCents: 795,
     keywords: [
       "yogurt",
+      "Dahi",
       "vada",
       "cooling",
       "tangy",
@@ -2168,6 +2297,7 @@ export const Products = [
     priceCents: 815,
     keywords: [
       "dhokla",
+      "Khaman",
       "gujarati",
       "steamed",
       "healthy",
@@ -2196,6 +2326,7 @@ export const Products = [
     priceCents: 780,
     keywords: [
       "fenugreek",
+      "Methi",
       "muthia",
       "steamed",
       "gujarati",
@@ -2363,7 +2494,8 @@ export const Products = [
     name: "Sev Puri",
     priceCents: 695,
     keywords: [
-      "sev puri",
+      "sev",
+      "puri",
       "chaat",
       "crispy",
       "toppings",

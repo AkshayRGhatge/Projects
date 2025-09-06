@@ -136,6 +136,20 @@ article {
 }
 
 /*Category section*/
+.category-header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.search-menu{
+  height: 35px;
+  margin-top:10px;
+  margin-bottom:10px;
+  padding:10px;
+  margin-right: 4px;
+}
+
 .category-container{
     display: flex;
     gap: 10px;
