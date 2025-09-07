@@ -1,6 +1,62 @@
 import { Products } from "../data/products.js";
 import { formatCurrency } from "../scripts/utils/money.js";
 
+//param 1: arr: which take the array and loop through each item
+//param 2: generateHtml: varaiable that hold the generate html
+// return the html 
+function generateProductGridItems(arr,generateHtml)
+{
+    //loop through the filter item array and generate the html
+    arr.forEach((productItems)=>{
+        generateHtml += 
+            `<div class="product-container">
+                <div class="product-image-container">
+                    <img class="product-image"
+                    src="${productItems.image}">
+                </div>
+                <div class="product-name js-product-name">
+                    ${productItems.name}
+                </div>
+
+                <div class="product-price">
+                    $${formatCurrency(productItems.priceCents)}
+                </div>
+
+                <div class="product-quantity-container">
+                    <button class="minus-icon">
+                        <i class="fa fa-minus-circle js-delete-quantity"></i>
+                    </button>
+                    <select class="js-quantity-field" data-product-id="${productItems.id}">
+                        <option selected value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <button class="plus-icon">
+                            <i class="fa fa-plus-circle js-add-quantity"></i>
+                    </button> 
+                </div>
+                <div class="product-spacer"></div>
+
+                <div class="added-to-cart js-added-to-cart">
+                    <i class="fas fa-check-circle"></i>
+                    Added
+                </div>
+
+                <button class="add-to-cart-button js-add-to-cart-button button-primary">
+                    Add to Cart
+                </button>
+            </div>`
+    }); 
+    return generateHtml;
+}
+
 //Variables
 const getCategories=document.querySelectorAll('.js-category-item'); //Variable to get the menu categoryItem
 const getProductGrid=document.querySelector('.js-product-grid'); //Variable to get the display grid section where the menu items display
@@ -40,67 +96,16 @@ getCategories.forEach(categoryItem=>{
             getFilterItems=[...Products];
             console.log(getFilterItems);
         }
-        else{ 
+        else
+        { 
              //filter the products array with the category text content
             getFilterItems=Products.filter((filterProductItem)=>{
                 return filterProductItem.category===categoryTextContent
             })
         }
        
-
-        //loop through the filter item array and generate the html
-        getFilterItems.forEach((productItems)=>{
-            getProductItemHtml += 
-                `<div class="product-container">
-                    <div class="product-image-container">
-                        <img class="product-image"
-                        src="${productItems.image}">
-                    </div>
-                    <div class="product-name js-product-name">
-                        ${productItems.name}
-                    </div>
-
-                    <div class="product-price">
-                        $${formatCurrency(productItems.priceCents)}
-                    </div>
-
-                    <div class="product-quantity-container">
-                            <button class="minus-icon">
-                            <i class="fa fa-minus-circle"></i>
-                        </button>
-                        <select>
-                            <option selected value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="plus-icon">
-                                <i class="fa fa-plus-circle"></i>
-                        </button> 
-                    </div>
-                
-                    
-                    <div class="product-spacer"></div>
-
-                    <div class="added-to-cart js-added-to-cart">
-                        <i class="fas fa-check-circle"></i>
-                        Added
-                    </div>
-
-                    <button class="add-to-cart-button js-add-to-cart-button button-primary">
-                        Add to Cart
-                    </button>
-                </div>`
-            
-        })
         //Append the html to the grid
-        getProductGrid.innerHTML=getProductItemHtml;
+        getProductGrid.innerHTML=generateProductGridItems(getFilterItems,getProductItemHtml);
     })
 })
 
@@ -123,7 +128,7 @@ getProductGrid.addEventListener('click', function(e){
     }   
 })
 
-//Search menu item
+//Make the Search menu Interactive
 getSearchMenu.addEventListener('input', function(e){
 
     //get the search input
@@ -144,73 +149,67 @@ getSearchMenu.addEventListener('input', function(e){
         getProductGrid.innerHTML='';
 
         let gridMenudisplay='';
-        //loop through each filter array item and generate the html
-        searchResultArray.map((searchFilterItems)=>{
-             gridMenudisplay+=   `<div class="product-container">
-                    <div class="product-image-container">
-                        <img class="product-image"
-                        src="${searchFilterItems.image}">
-                    </div>
-                    <div class="product-name js-product-name">
-                        ${searchFilterItems.name}
-                    </div>
+      
 
-                    <div class="product-price">
-                        $${formatCurrency(searchFilterItems.priceCents)}
-                    </div>
+        //append the html to the grid
+        getProductGrid.innerHTML=generateProductGridItems(searchResultArray,gridMenudisplay);
 
-                    <div class="product-quantity-container">
-                            <button class="minus-icon">
-                            <i class="fa fa-minus-circle"></i>
-                        </button>
-                        <select>
-                            <option selected value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-                        <button class="plus-icon">
-                                <i class="fa fa-plus-circle"></i>
-                        </button> 
-                    </div>
-                
-                    
-                    <div class="product-spacer"></div>
+        //remove the 'selected' class by looping through each categories item
+        getCategories.forEach(item=>{
+            item.classList.remove('selected');
+        })
 
-                    <div class="added-to-cart js-added-to-cart">
-                        <i class="fas fa-check-circle"></i>
-                        Added
-                    </div>
-
-                    <button class="add-to-cart-button js-add-to-cart-button button-primary">
-                        Add to Cart
-                    </button>
-                </div>`;
-         })
-
-            //append the html to the grid
-            getProductGrid.innerHTML=gridMenudisplay;
-
-            //remove the 'selected' class by looping through each categories item
-            getCategories.forEach(item=>{
-                item.classList.remove('selected');
-            })
-
-            //Make sure the category all get selected
-            getCategories.forEach((categoryItem)=>{
-                
-                if(categoryItem.textContent === "All")
-                {
-                    categoryItem.classList.add('selected');
-                }
-            })
+        //Make sure the category all get selected
+        getCategories.forEach((categoryItem)=>{
+            
+            if(categoryItem.textContent === "All")
+            {
+                categoryItem.classList.add('selected');
+            }
+        })
     }
-    
 })
 
+//Make the Quantity Interactive
+getProductGrid.addEventListener('click', function(e){
+
+    //handle the Adding of the item
+    if(e.target.classList.contains('js-add-quantity'))
+    {
+        //get the parent element which is add icon
+        let addQuantityIcon=e.target.parentElement;
+      
+        //get the quantity field
+        let quantityField=addQuantityIcon.previousElementSibling;
+
+        //get the quantity value
+        let quantityFieldValue= Number(quantityField.value);
+        
+        //If the quantity is not max
+        if(quantityFieldValue !=10)
+        {
+            //update the value
+            quantityField.value=quantityFieldValue+1;
+        }
+    }
+
+    //handle the deleting the item
+     if(e.target.classList.contains('js-delete-quantity'))
+    {
+        //get the parent element which is add icon
+        let deleteQuantityIcon=e.target.parentElement;
+      
+        //get the quantity field
+        let quantityField=deleteQuantityIcon.nextElementSibling;
+
+        //get the quantity value
+        let quantityFieldValue= Number(quantityField.value);
+
+        //If the quantity is not min
+        if(quantityFieldValue != 1)
+        {
+            //update the value
+            quantityField.value=quantityFieldValue-1;
+        }
+    }
+})
