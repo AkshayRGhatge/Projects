@@ -63,6 +63,12 @@ function generateProductGridItems(arr,generateHtml)
 const getCategories=document.querySelectorAll('.js-category-item'); //Variable to get the menu categoryItem
 const getProductGrid=document.querySelector('.js-product-grid'); //Variable to get the display grid section where the menu items display
 const getSearchMenu=document.getElementById('js-search-menu-textbox'); //Variable to get the Search menu text field
+const getCustomerNameInput=document.querySelector('.js-customer-name-input'); //Varaible for the customer name input section
+const getSaveCustomerBtn=document.getElementById('js-save-customer-name'); //Variable to save button for the customer name
+const getCustomerNameText=document.getElementById('js-customer-name-textbox'); //Variable for the customer name text box field in the order details section
+const getCustomerDisplay=document.querySelector('.js-customer-name-display'); //variable for the customer name display section in the order details section
+const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //Variable for the customer name label in the order details section
+const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
 
 //ON the load of the dom click the Starter item
 document.addEventListener('DOMContentLoaded', function(){
@@ -213,8 +219,6 @@ getProductGrid.addEventListener('click', function(e){
         //add the item in the cart array
         addToCart(productId,quantityValue);
        
-
-
         //get the Added message
         const addedMessage = e.target.parentElement.querySelector('.js-added-to-cart');
        
@@ -226,5 +230,28 @@ getProductGrid.addEventListener('click', function(e){
             addedMessage.style.opacity = '0';
         }, 2000);    
     } 
+});
+
+//Make the customer name section interactive
+getSaveCustomerBtn.addEventListener('click', function(){
+    //get the customer name value from the text box field
+    let customerNameValue=getCustomerNameText.value;
+    
+    //if the customer name value exist 
+    if(customerNameValue)
+    {
+        //set the label with value
+        getCustomerNamelabel.textContent=customerNameValue;
+
+        //hide the input section
+        getCustomerNameInput.style.display='none';
+    }
+       
 })
+
+//Make the customer name edit section interactive
+getCustomerNameEdit.addEventListener('click', function(){
+    
+})
+
 
