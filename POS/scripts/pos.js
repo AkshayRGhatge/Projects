@@ -1,5 +1,7 @@
 import { Products } from "../data/products.js";
 import { formatCurrency } from "../scripts/utils/money.js";
+import { cart,saveToCart,addToCart } from "../data/cart.js";
+
 
 //param 1: arr: which take the array and loop through each item
 //param 2: generateHtml: varaiable that hold the generate html
@@ -109,25 +111,6 @@ getCategories.forEach(categoryItem=>{
     })
 })
 
-//Display Added message when the add to cart button got click
-getProductGrid.addEventListener('click', function(e){
-    if(e.target.classList.contains('js-add-to-cart-button'))
-    {
-        e.preventDefault();
-       
-        //get the Added message
-        const addedMessage = e.target.parentElement.querySelector('.js-added-to-cart');
-       
-        console.log(addedMessage);
-        //Once the add is click show Added message
-        addedMessage.style.opacity = '1';
-        setTimeout(() => {
-            //display it till 2 sec and make it hide
-            addedMessage.style.opacity = '0';
-        }, 2000);    
-    }   
-})
-
 //Make the Search menu Interactive
 getSearchMenu.addEventListener('input', function(e){
 
@@ -212,4 +195,36 @@ getProductGrid.addEventListener('click', function(e){
             quantityField.value=quantityFieldValue-1;
         }
     }
+
+    //handle the adding  of the product item in the cart
+    if(e.target.classList.contains('js-add-to-cart-button'))
+    {
+        e.preventDefault();
+       
+        //get the quantity field
+        let quantityField=e.target.parentElement.querySelector('.js-quantity-field');
+
+        //get the quantity value
+        let quantityValue=Number(quantityField.value);
+
+        //get the product id
+        let productId=quantityField.dataset.productId;
+        
+        //add the item in the cart array
+        addToCart(productId,quantityValue);
+       
+
+
+        //get the Added message
+        const addedMessage = e.target.parentElement.querySelector('.js-added-to-cart');
+       
+        console.log();
+        //Once the add is click show Added message
+        addedMessage.style.opacity = '1';
+        setTimeout(() => {
+            //display it till 2 sec and make it hide
+            addedMessage.style.opacity = '0';
+        }, 2000);    
+    } 
 })
+
