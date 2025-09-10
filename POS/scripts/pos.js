@@ -232,7 +232,7 @@ getProductGrid.addEventListener('click', function(e){
     } 
 });
 
-//Make the customer name section interactive
+//Make the customer name save section interactive
 getSaveCustomerBtn.addEventListener('click', function(){
     //get the customer name value from the text box field
     let customerNameValue=getCustomerNameText.value;
@@ -244,7 +244,10 @@ getSaveCustomerBtn.addEventListener('click', function(){
         getCustomerNamelabel.textContent=customerNameValue;
 
         //hide the input section
-        getCustomerNameInput.style.display='none';
+        getCustomerNameInput.classList.add('display-none');
+
+        //show the label section
+        getCustomerDisplay.classList.remove('display-none');
     }
        
 })
@@ -252,6 +255,18 @@ getSaveCustomerBtn.addEventListener('click', function(){
 //Make the customer name edit section interactive
 getCustomerNameEdit.addEventListener('click', function(){
     
+    //hide the edit label section
+    getCustomerDisplay.classList.add('display-none');
+
+    //show the input customer name section
+     getCustomerNameInput.classList.remove('display-none');
+
+    //get the customer name details
+    let customerName=getCustomerNamelabel.textContent;
+    
+    //update the input box field with the customer name value
+    getCustomerNameText.value=customerName;
+
 })
 
 

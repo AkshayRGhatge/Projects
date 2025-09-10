@@ -114,11 +114,6 @@ a{
 }
 
 /*=============================================Main Section==========================================================*/
-
-.display-none{
-    display:none;
-}
-
 .main-content{
     background: var(--color-bg);
     margin-left: 155px;   
@@ -358,10 +353,14 @@ article {
   color: green;
   font-size: 20px;
 }
+
 .order-customer-name-info{
   justify-content: space-between;
 }
 
+.order-time{
+  margin-top:10px;
+}
 /* Order container */
 .order-container {
   background-color: var(--color-bg);
@@ -582,6 +581,9 @@ article {
   display: none;
 }
 
+.display-none{
+    display:none;
+}
 /*===================== Tablet screen (768px to 1024px) ===============================*/
 @media (max-width: 1024px) and (min-width: 769px) {
   .right-panel {
