@@ -69,7 +69,7 @@ const getCustomerNameText=document.getElementById('js-customer-name-textbox'); /
 const getCustomerDisplay=document.querySelector('.js-customer-name-display'); //variable for the customer name display section in the order details section
 const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //Variable for the customer name label in the order details section
 const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
-
+const getOrderGrid=document.querySelector('.js-order-grid'); //Variable for the order item grid 
 //ON the load of the dom click the Starter item
 document.addEventListener('DOMContentLoaded', function(){
     getCategories.forEach(item=>{
@@ -182,7 +182,7 @@ getProductGrid.addEventListener('click', function(e){
         }
     }
 
-    //handle the deleting the item
+    //Handle the deleting the item
      if(e.target.classList.contains('js-delete-quantity'))
     {
         //get the parent element which is add icon
@@ -202,7 +202,7 @@ getProductGrid.addEventListener('click', function(e){
         }
     }
 
-    //handle the adding  of the product item in the cart
+    //Handle the adding of the product item in the cart
     if(e.target.classList.contains('js-add-to-cart-button'))
     {
         e.preventDefault();
@@ -222,13 +222,16 @@ getProductGrid.addEventListener('click', function(e){
         //get the Added message
         const addedMessage = e.target.parentElement.querySelector('.js-added-to-cart');
        
-        console.log();
         //Once the add is click show Added message
         addedMessage.style.opacity = '1';
         setTimeout(() => {
             //display it till 2 sec and make it hide
             addedMessage.style.opacity = '0';
-        }, 2000);    
+        }, 2000);  
+        
+        //Generate the Order Item section
+        generateOrderItemsHtml(productId);
+        
     } 
 });
 
@@ -269,4 +272,53 @@ getCustomerNameEdit.addEventListener('click', function(){
 
 })
 
+
+
+// func to generate the html content for the Order Items
+function generateOrderItemsHtml(productId)
+{
+
+    //Loop through each cart item and get the cart item 
+    let existingCartProduct=cart.find(cartItem=> cartItem.productId === productId);
+
+    let cartProductDetails='';
+
+    //if there are cart items then loop through Product details to get more item details
+    if(existingCartProduct)
+    { 
+        cartProductDetails=Products.find((item)=> existingCartProduct.productId === item.id)
+    }
+
+    //Generate the Order Item section
+    let generateHtmlContent=`
+                    <div class="order-container">
+                        <div class="order-details-section">
+                            <div class="order-image-container">
+                                <img class="order-image" src="${cartProductDetails.image}" alt="${cartProductDetails.name}">
+                            </div>
+                            <div class="order-name">${cartProductDetails.name}</div>
+                            <button class="delete-button" aria-label="Remove item">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </div>     
+                        <div class="order-qty-price">
+                            <div class="order-quantity-container">
+                                <button class="minus-icon">
+                                    <i class="fa fa-minus-circle js-delete-quantity"></i>
+                                </button>
+                                <input type="text" class="order-qty-item" id="js-order-qty" value="${existingCartProduct.quantity}">
+                                <button class="plus-icon">
+                                    <i class="fa fa-plus-circle js-add-quantity"></i>
+                                </button>      
+                            </div>
+                            <div class="order-price">
+                                <p>$${formatCurrency(cartProductDetails.priceCents)}</p>
+                            </div>
+                        </div>
+                    </div>`;
+
+    //Append the html
+    getOrderGrid.innerHTML+=generateHtmlContent;
+
+}
 
