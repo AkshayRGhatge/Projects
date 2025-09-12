@@ -11,11 +11,11 @@ export function saveToCart()
 /**
  * The function check if there is an item in the load storage if not then add the item by default
  */
-function loadFromStorage()
+export function loadFromStorage()
 {
     // get the cart items from local storage
-   let cartItems= JSON.parse(localStorage.getItem("cartItems"));
-   if(!cartItems)
+   cart= JSON.parse(localStorage.getItem("cartItems"));
+   if(!cart)
     {
         cart=[
             {
@@ -27,6 +27,8 @@ function loadFromStorage()
                 quantity:1
             }
         ];
+       
+        saveToCart();
     }
 }
 
@@ -42,11 +44,9 @@ export function addToCart(productId,quantityValue)
     let matchItem;
     //Loop through each cart item
     cart.forEach((cartItem)=>{
-        console.log("cart pid: "+productId+" cartItem pid: "+cartItem.productId);
         //check if there is already an existing item in the cart
-        if(cartItem.productId=productId)
+        if(cartItem.productId===productId)
         {
-           console.log("matching");
            matchItem=cartItem;
         }
     })

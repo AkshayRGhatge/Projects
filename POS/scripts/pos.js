@@ -1,6 +1,6 @@
 import { Products } from "../data/products.js";
 import { formatCurrency } from "../scripts/utils/money.js";
-import { cart,saveToCart,addToCart } from "../data/cart.js";
+import { cart,addToCart ,loadFromStorage } from "../data/cart.js";
 
 
 //param 1: arr: which take the array and loop through each item
@@ -70,8 +70,15 @@ const getCustomerDisplay=document.querySelector('.js-customer-name-display'); //
 const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //Variable for the customer name label in the order details section
 const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
 const getOrderGrid=document.querySelector('.js-order-grid'); //Variable for the order item grid 
+
 //ON the load of the dom click the Starter item
 document.addEventListener('DOMContentLoaded', function(){
+
+     //Load cart from localStorage when dom  content loaded
+    loadFromStorage();
+    generateOrderItemsHtml();
+
+    //Select Starter category menu
     getCategories.forEach(item=>{
         if(item.textContent==="Starter")
         {
@@ -230,7 +237,7 @@ getProductGrid.addEventListener('click', function(e){
         }, 2000);  
         
         //Generate the Order Item section
-        generateOrderItemsHtml(productId);
+        generateOrderItemsHtml();
         
     } 
 });
@@ -275,50 +282,50 @@ getCustomerNameEdit.addEventListener('click', function(){
 
 
 // func to generate the html content for the Order Items
-function generateOrderItemsHtml(productId)
+function generateOrderItemsHtml()
 {
+    //clear the grid section
+    getOrderGrid.innerHTML="";
 
-    //Loop through each cart item and get the cart item 
-    let existingCartProduct=cart.find(cartItem=> cartItem.productId === productId);
+    let generateHtml='';
+    //Loop through each cart item
+    cart.forEach((item)=>{
 
-    let cartProductDetails='';
+        let getItemId=item.productId;
+        //Find ProductDetails from the Products array
+        let getProductItemDetails=Products.find(productItem=> productItem.id === getItemId)
 
-    //if there are cart items then loop through Product details to get more item details
-    if(existingCartProduct)
-    { 
-        cartProductDetails=Products.find((item)=> existingCartProduct.productId === item.id)
-    }
-
-    //Generate the Order Item section
-    let generateHtmlContent=`
-                    <div class="order-container">
-                        <div class="order-details-section">
-                            <div class="order-image-container">
-                                <img class="order-image" src="${cartProductDetails.image}" alt="${cartProductDetails.name}">
-                            </div>
-                            <div class="order-name">${cartProductDetails.name}</div>
-                            <button class="delete-button" aria-label="Remove item">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </div>     
-                        <div class="order-qty-price">
-                            <div class="order-quantity-container">
-                                <button class="minus-icon">
-                                    <i class="fa fa-minus-circle js-delete-quantity"></i>
+          generateHtml +=`
+                        <div class="order-container" data-product-id="${getProductItemDetails.id}">
+                            <div class="order-details-section">
+                                <div class="order-image-container">
+                                    <img class="order-image" src="${getProductItemDetails.image}" alt="${getProductItemDetails.name}">
+                                </div>
+                                <div class="order-name">${getProductItemDetails.name}</div>
+                                <button class="delete-button" aria-label="Remove item">
+                                    <i class="fa fa-trash"></i>
                                 </button>
-                                <input type="text" class="order-qty-item" id="js-order-qty" value="${existingCartProduct.quantity}">
-                                <button class="plus-icon">
-                                    <i class="fa fa-plus-circle js-add-quantity"></i>
-                                </button>      
+                            </div>     
+                            <div class="order-qty-price">
+                                <div class="order-quantity-container">
+                                    <button class="minus-icon">
+                                        <i class="fa fa-minus-circle js-delete-quantity"></i>
+                                    </button>
+                                    <input type="text" class="order-qty-item" id="js-order-qty" value="${item.quantity}">
+                                    <button class="plus-icon">
+                                        <i class="fa fa-plus-circle js-add-quantity"></i>
+                                    </button>      
+                                </div>
+                                <div class="order-price">
+                                    <p>$${formatCurrency(getProductItemDetails.priceCents)}</p>
+                                </div>
                             </div>
-                            <div class="order-price">
-                                <p>$${formatCurrency(cartProductDetails.priceCents)}</p>
-                            </div>
-                        </div>
-                    </div>`;
+                        </div>`;
+
+    })
 
     //Append the html
-    getOrderGrid.innerHTML+=generateHtmlContent;
+    getOrderGrid.innerHTML+=generateHtml;
 
 }
 
