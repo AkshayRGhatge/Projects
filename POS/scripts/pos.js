@@ -1,5 +1,5 @@
-import { Products } from "../data/products.js";
-import { formatCurrency } from "../scripts/utils/money.js";
+import { Products ,getProduct } from "../data/products.js";
+import { formatCurrency,taxCalculator } from "../scripts/utils/money.js";
 import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem} from "../data/cart.js";
 
 
@@ -70,13 +70,19 @@ const getCustomerDisplay=document.querySelector('.js-customer-name-display'); //
 const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //Variable for the customer name label in the order details section
 const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
 const getOrderGrid=document.querySelector('.js-order-grid'); //Variable for the order item grid 
+const getAmountDetailsSection=document.querySelector('.js-amount-details-section');//Variable to get the amount section
 
 //ON the load of the dom click the Starter item
 document.addEventListener('DOMContentLoaded', function(){
 
      //Load cart from localStorage when dom  content loaded
     loadFromStorage();
+
+    //Generate the order grid section
     generateOrderItemsHtml();
+
+    //Generate the payment details section
+    generateAmountDetailsSection();
 
     //Select Starter category menu
     getCategories.forEach(item=>{
@@ -210,6 +216,9 @@ getProductGrid.addEventListener('click', function(e){
         
         //Generate the Order Item section
         generateOrderItemsHtml();
+
+        //Generate the payment details section
+        generateAmountDetailsSection();
         
     } 
 });
@@ -303,21 +312,21 @@ function generateOrderItemsHtml()
 
 //Fun to add the quantity value
 function addQuantity(e){
-     //get the parent element which is add icon
-        let addQuantityIcon=e.target.parentElement;  
-      
-        //get the quantity field
-        let quantityField=addQuantityIcon.previousElementSibling;
+    //get the parent element which is add icon
+    let addQuantityIcon=e.target.parentElement;  
+    
+    //get the quantity field
+    let quantityField=addQuantityIcon.previousElementSibling;
 
-        //get the quantity value
-        let quantityFieldValue= Number(quantityField.value);
-        console.log("quantityFieldValue: "+quantityFieldValue);
-        //If the quantity is not max
-        if(quantityFieldValue !=10)
-        {
-            //update the value
-            quantityField.value=quantityFieldValue+1;
-        }
+    //get the quantity value
+    let quantityFieldValue= Number(quantityField.value);
+    console.log("quantityFieldValue: "+quantityFieldValue);
+    //If the quantity is not max
+    if(quantityFieldValue !=10)
+    {
+        //update the value
+        quantityField.value=quantityFieldValue+1;
+    }
 }
 
 //Fun to delete the quantity value
@@ -347,7 +356,6 @@ getOrderGrid.addEventListener('click', function(e){
     {
         addQuantity(e);
         saveToCart();
-
     }
 
     //Handle the deleting the item
@@ -369,5 +377,64 @@ getOrderGrid.addEventListener('click', function(e){
         //Generate Order grid
         generateOrderItemsHtml();
 
+        //Generate the payment details section
+        generateAmountDetailsSection();
     }
-})
+});
+
+
+//Make the amount placeholder interactive=
+
+function generateAmountDetailsSection(){
+
+    let totalCents=0;
+    //Loop through each cart items
+    cart.forEach((item)=>{
+        let productId=item.productId;
+
+        //Get the product Details
+        let productDetails=getProduct(productId);
+        
+        //get the price cents
+        let getProductPriceCents=productDetails.priceCents;
+        
+        //calculate totat cents
+        totalCents+=Number(getProductPriceCents);
+    })
+
+    
+    let individualItemPrice= totalCents;
+    let taxCalculate=taxCalculator(totalCents);
+
+    let total = formatCurrency(totalCents + taxCalculate);
+    let generateHtm=
+         `
+        <div class="subtotal-section">
+            <h4>Subtotal</h4>
+            <span>$${formatCurrency(individualItemPrice)}</span> 
+        </div>
+        <div class="tax-section">
+            <h4>Tax</h4>
+            <span>$${formatCurrency(taxCalculate)}</span> 
+        </div>
+        <div class="discount-section">
+            <h4>Discount</h4>
+            <span>$0</span> 
+        </div>
+        <div class="total-bill">
+            <h3>Total</h3>
+            <h3>$${total}</h3>
+        </div>
+        <div class="promo-apply-section">
+            <input type="text" class="text-box" placeholder="Discount" id="promo-code-field">
+            <button class="apply-button">Apply</button>
+        </div>
+        <div class="proceed-payment-section">
+            <button class="proceed-payment">Proceed Payment</button>
+        </div>
+        `;
+
+      //append the htmls to the amount detail section  
+    getAmountDetailsSection.innerHTML=generateHtm;
+
+}

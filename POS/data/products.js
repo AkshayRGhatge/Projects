@@ -2533,3 +2533,13 @@ export const Products = [
   }
 ]
 
+/**
+ * The function purpose is to find the Products with the matching id and return.
+ * @param {*} ProductId : ProductId to look for
+ */
+export function getProduct(ProductId)
+{
+  return Products.find((item)=>{
+     return  item.id===ProductId;
+  })
+}
