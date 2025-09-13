@@ -1,6 +1,6 @@
 import { Products } from "../data/products.js";
 import { formatCurrency } from "../scripts/utils/money.js";
-import { cart,addToCart ,loadFromStorage } from "../data/cart.js";
+import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem} from "../data/cart.js";
 
 
 //param 1: arr: which take the array and loop through each item
@@ -172,41 +172,13 @@ getProductGrid.addEventListener('click', function(e){
     //handle the Adding of the item
     if(e.target.classList.contains('js-add-quantity'))
     {
-        //get the parent element which is add icon
-        let addQuantityIcon=e.target.parentElement;
-      
-        //get the quantity field
-        let quantityField=addQuantityIcon.previousElementSibling;
-
-        //get the quantity value
-        let quantityFieldValue= Number(quantityField.value);
-        
-        //If the quantity is not max
-        if(quantityFieldValue !=10)
-        {
-            //update the value
-            quantityField.value=quantityFieldValue+1;
-        }
+        addQuantity(e);
     }
 
     //Handle the deleting the item
      if(e.target.classList.contains('js-delete-quantity'))
     {
-        //get the parent element which is add icon
-        let deleteQuantityIcon=e.target.parentElement;
-      
-        //get the quantity field
-        let quantityField=deleteQuantityIcon.nextElementSibling;
-
-        //get the quantity value
-        let quantityFieldValue= Number(quantityField.value);
-
-        //If the quantity is not min
-        if(quantityFieldValue != 1)
-        {
-            //update the value
-            quantityField.value=quantityFieldValue-1;
-        }
+        deleteQuantity(e);
     }
 
     //Handle the adding of the product item in the cart
@@ -303,7 +275,7 @@ function generateOrderItemsHtml()
                                 </div>
                                 <div class="order-name">${getProductItemDetails.name}</div>
                                 <button class="delete-button" aria-label="Remove item">
-                                    <i class="fa fa-trash"></i>
+                                    <i class="fa fa-trash  js-delete-item" data-product-id="${getProductItemDetails.id}"></i>
                                 </button>
                             </div>     
                             <div class="order-qty-price">
@@ -329,3 +301,73 @@ function generateOrderItemsHtml()
 
 }
 
+//Fun to add the quantity value
+function addQuantity(e){
+     //get the parent element which is add icon
+        let addQuantityIcon=e.target.parentElement;  
+      
+        //get the quantity field
+        let quantityField=addQuantityIcon.previousElementSibling;
+
+        //get the quantity value
+        let quantityFieldValue= Number(quantityField.value);
+        console.log("quantityFieldValue: "+quantityFieldValue);
+        //If the quantity is not max
+        if(quantityFieldValue !=10)
+        {
+            //update the value
+            quantityField.value=quantityFieldValue+1;
+        }
+}
+
+//Fun to delete the quantity value
+function deleteQuantity(e){
+     //get the parent element which is add icon
+    let deleteQuantityIcon=e.target.parentElement;
+    
+    //get the quantity field
+    let quantityField=deleteQuantityIcon.nextElementSibling;
+
+    //get the quantity value
+    let quantityFieldValue= Number(quantityField.value);
+
+    //If the quantity is not min
+    if(quantityFieldValue != 1)
+    {
+        //update the value
+        quantityField.value=quantityFieldValue-1;
+    }
+   
+}
+
+//Make the quantity and delete interactive on the order grid section
+getOrderGrid.addEventListener('click', function(e){
+    //Handle the Adding of the item
+    if(e.target.classList.contains('js-add-quantity'))
+    {
+        addQuantity(e);
+        saveToCart();
+
+    }
+
+    //Handle the deleting the item
+    if(e.target.classList.contains('js-delete-quantity'))
+    {
+        deleteQuantity(e);
+        saveToCart();
+    }
+
+    //Handle teh delete of the item
+    if(e.target.classList.contains('js-delete-item'))
+    {
+        //get the product id from the dataset
+        let productId= e.target.dataset.productId;
+      
+        //Remove item
+        removeCartItem(productId);
+
+        //Generate Order grid
+        generateOrderItemsHtml();
+
+    }
+})

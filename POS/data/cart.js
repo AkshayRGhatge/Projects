@@ -68,3 +68,17 @@ export function addToCart(productId,quantityValue)
     //save in the local storage
     saveToCart();
 }
+
+/**
+ * The function take the product id and remove the item from the cart item 
+ * @param {*} productID :
+ */
+export function removeCartItem(productID){
+    
+    //remove the item from the cart
+    cart=cart.filter(item => item.productId !== productID);
+    
+    
+    //save in the local storage
+    saveToCart();
+}
