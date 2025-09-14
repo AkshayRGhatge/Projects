@@ -1,5 +1,5 @@
 import { Products ,getProduct } from "../data/products.js";
-import { formatCurrency,taxCalculator } from "../scripts/utils/money.js";
+import { formatCurrency,taxCalculator,formatDollartoCents,calculateDiscountValue,calculateApplyDiscount } from "../scripts/utils/money.js";
 import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem} from "../data/cart.js";
 
 
@@ -385,7 +385,7 @@ getOrderGrid.addEventListener('click', function(e){
 
 //Make the amount placeholder interactive=
 
-function generateAmountDetailsSection(){
+function generateAmountDetailsSection(discountCents =0){
 
     let totalCents=0;
     //Loop through each cart items
@@ -406,12 +406,12 @@ function generateAmountDetailsSection(){
     let individualItemPrice= totalCents;
     let taxCalculate=taxCalculator(totalCents);
 
-    let total = formatCurrency(totalCents + taxCalculate);
+    let total = formatCurrency((totalCents + taxCalculate)-discountCents);
     let generateHtm=
          `
         <div class="subtotal-section">
             <h4>Subtotal</h4>
-            <span>$${formatCurrency(individualItemPrice)}</span> 
+            <span class="js-subtotal">$${formatCurrency(individualItemPrice)}</span> 
         </div>
         <div class="tax-section">
             <h4>Tax</h4>
@@ -419,15 +419,19 @@ function generateAmountDetailsSection(){
         </div>
         <div class="discount-section">
             <h4>Discount</h4>
-            <span>$0</span> 
+            <span class="js-discount-label">$${formatCurrency(discountCents)}</span> 
         </div>
         <div class="total-bill">
             <h3>Total</h3>
             <h3>$${total}</h3>
         </div>
         <div class="promo-apply-section">
-            <input type="text" class="text-box" placeholder="Discount" id="promo-code-field">
-            <button class="apply-button">Apply</button>
+            <input type="text" class="text-box js-discount-value" placeholder="Discount" id="promo-code-field">
+            <select class="js-discount-unit text-box">
+                <option selected value="percent">%</option>
+                <option value="dollar">$</option>
+            </select>
+            <button class="apply-button js-apply-button">Apply</button>
         </div>
         <div class="proceed-payment-section">
             <button class="proceed-payment">Proceed Payment</button>
@@ -438,3 +442,43 @@ function generateAmountDetailsSection(){
     getAmountDetailsSection.innerHTML=generateHtm;
 
 }
+
+//Make discount interactive
+getAmountDetailsSection.addEventListener('click', function(e){
+    if(e.target.classList.contains('js-apply-button'))
+    {
+        //get input discount value in dollar
+        let getDiscountValue=document.querySelector('.js-discount-value').value;
+
+        //convert input discount value in cents
+        let convertDiscountValueCents=formatDollartoCents(getDiscountValue);
+       
+        //get discount unit
+        let getDiscountUnit=document.querySelector('.js-discount-unit').value;
+       
+        //get subtotal value
+        let getSubtotalValue=document.querySelector('.js-subtotal').textContent;
+       
+        //remove $ sign from the subtotaol
+        let removeDollarSign=getSubtotalValue.replace('$','');
+        
+        //convert the subtotal to cents
+        let convertCents=formatDollartoCents(removeDollarSign);
+        
+        let discountValueCents=0;
+
+        //check if the discount unit is percentage
+        if(getDiscountUnit === 'percent')
+        {
+           discountValueCents=calculateDiscountValue(convertCents,getDiscountValue)  
+        }
+        else
+        {
+            discountValueCents=convertDiscountValueCents;
+        }
+
+        //generate the amount detail section
+        generateAmountDetailsSection(discountValueCents);
+
+    }
+})
