@@ -484,8 +484,8 @@ getAmountDetailsSection.addEventListener('click', function(e){
     }
 
     //Proceed payment button click
-    if(e.target.id.contains('js-proceed-payment'))
+    if(e.target.id.includes('js-proceed-payment'))
     {
-
+        window.location.href = "./orders.html";
     }
 })
