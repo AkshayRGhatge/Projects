@@ -414,7 +414,7 @@ function generateAmountDetailsSection(discountCents =0){
             <span class="js-subtotal">$${formatCurrency(individualItemPrice)}</span> 
         </div>
         <div class="tax-section">
-            <h4>Tax</h4>
+            <h4>Tax (13%)</h4>
             <span>$${formatCurrency(taxCalculate)}</span> 
         </div>
         <div class="discount-section">
@@ -434,7 +434,7 @@ function generateAmountDetailsSection(discountCents =0){
             <button class="apply-button js-apply-button">Apply</button>
         </div>
         <div class="proceed-payment-section">
-            <button class="proceed-payment">Proceed Payment</button>
+            <button class="proceed-payment" id="js-proceed-payment">Proceed Payment</button>
         </div>
         `;
 
@@ -445,6 +445,8 @@ function generateAmountDetailsSection(discountCents =0){
 
 //Make discount interactive
 getAmountDetailsSection.addEventListener('click', function(e){
+
+    //Apply Button click
     if(e.target.classList.contains('js-apply-button'))
     {
         //get input discount value in dollar
@@ -479,6 +481,11 @@ getAmountDetailsSection.addEventListener('click', function(e){
 
         //generate the amount detail section
         generateAmountDetailsSection(discountValueCents);
+    }
+
+    //Proceed payment button click
+    if(e.target.id.contains('js-proceed-payment'))
+    {
 
     }
 })
