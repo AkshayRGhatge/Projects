@@ -1,6 +1,6 @@
 import { Products ,getProduct } from "../data/products.js";
-import { formatCurrency,taxCalculator,formatDollartoCents,calculateDiscountValue,calculateApplyDiscount } from "../scripts/utils/money.js";
-import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem} from "../data/cart.js";
+import { formatCurrency,taxCalculator,formatDollartoCents,calculateDiscountValue } from "../scripts/utils/money.js";
+import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem, updateQuantityInCart} from "../data/cart.js";
 
 
 //param 1: arr: which take the array and loop through each item
@@ -26,7 +26,7 @@ function generateProductGridItems(arr,generateHtml)
 
                 <div class="product-quantity-container">
                     <button class="minus-icon">
-                        <i class="fa fa-minus-circle js-delete-quantity"></i>
+                        <i class="fa fa-minus-circle js-delete-quantity data-product-id="${productItems.id}"></i>
                     </button>
                     <select class="js-quantity-field" data-product-id="${productItems.id}">
                         <option selected value="1">1</option>
@@ -41,7 +41,7 @@ function generateProductGridItems(arr,generateHtml)
                         <option value="10">10</option>
                     </select>
                     <button class="plus-icon">
-                            <i class="fa fa-plus-circle js-add-quantity"></i>
+                            <i class="fa fa-plus-circle js-add-quantity" data-product-id="${productItems.id}"></i>
                     </button> 
                 </div>
                 <div class="product-spacer"></div>
@@ -115,7 +115,6 @@ getCategories.forEach(categoryItem=>{
         if(categoryTextContent === "All")
         {
             getFilterItems=[...Products];
-            console.log(getFilterItems);
         }
         else
         { 
@@ -290,11 +289,11 @@ function generateOrderItemsHtml()
                             <div class="order-qty-price">
                                 <div class="order-quantity-container">
                                     <button class="minus-icon">
-                                        <i class="fa fa-minus-circle js-delete-quantity"></i>
+                                        <i class="fa fa-minus-circle js-delete-quantity" data-product-id="${getProductItemDetails.id}"></i>
                                     </button>
-                                    <input type="text" class="order-qty-item" id="js-order-qty" value="${item.quantity}">
+                                    <input type="text" class="order-qty-item" value="${item.quantity}">
                                     <button class="plus-icon">
-                                        <i class="fa fa-plus-circle js-add-quantity"></i>
+                                        <i class="fa fa-plus-circle js-add-quantity" data-product-id="${getProductItemDetails.id}"></i>
                                     </button>      
                                 </div>
                                 <div class="order-price">
@@ -315,18 +314,23 @@ function addQuantity(e){
     //get the parent element which is add icon
     let addQuantityIcon=e.target.parentElement;  
     
+    //get the product id
+    let prdId=e.target.dataset.productId;
+
     //get the quantity field
     let quantityField=addQuantityIcon.previousElementSibling;
 
     //get the quantity value
     let quantityFieldValue= Number(quantityField.value);
-    console.log("quantityFieldValue: "+quantityFieldValue);
-    //If the quantity is not max
-    if(quantityFieldValue !=10)
+  
+    //If the quantity is not max selecting 9 as min value, because the max value we want 1 to add and it meets the condition
+    if(quantityFieldValue <=9)
     {
         //update the value
         quantityField.value=quantityFieldValue+1;
+        updateQuantityInCart(prdId,quantityFieldValue+1)
     }
+
 }
 
 //Fun to delete the quantity value
@@ -334,17 +338,22 @@ function deleteQuantity(e){
      //get the parent element which is add icon
     let deleteQuantityIcon=e.target.parentElement;
     
+    //get the product id
+    let prdId=e.target.dataset.productId;
+
     //get the quantity field
     let quantityField=deleteQuantityIcon.nextElementSibling;
 
     //get the quantity value
     let quantityFieldValue= Number(quantityField.value);
 
-    //If the quantity is not min
-    if(quantityFieldValue != 1)
+    //If the quantity is not min selecting 2 as min value, because the min value we want 1 to substract it meets the condition
+    if(quantityFieldValue >= 2)
     {
         //update the value
         quantityField.value=quantityFieldValue-1;
+
+        updateQuantityInCart(prdId,quantityFieldValue-1)
     }
    
 }
@@ -355,17 +364,21 @@ getOrderGrid.addEventListener('click', function(e){
     if(e.target.classList.contains('js-add-quantity'))
     {
         addQuantity(e);
-        saveToCart();
+        
+        //Generate the payment details section
+        generateAmountDetailsSection();
     }
 
     //Handle the deleting the item
     if(e.target.classList.contains('js-delete-quantity'))
     {
         deleteQuantity(e);
-        saveToCart();
+      
+         //Generate the payment details section
+        generateAmountDetailsSection();
     }
 
-    //Handle teh delete of the item
+    //Handle the delete of the item
     if(e.target.classList.contains('js-delete-item'))
     {
         //get the product id from the dataset
@@ -390,16 +403,24 @@ function generateAmountDetailsSection(discountCents =0){
     let totalCents=0;
     //Loop through each cart items
     cart.forEach((item)=>{
-        let productId=item.productId;
 
-        //Get the product Details
-        let productDetails=getProduct(productId);
-        
-        //get the price cents
-        let getProductPriceCents=productDetails.priceCents;
-        
-        //calculate totat cents
-        totalCents+=Number(getProductPriceCents);
+        let productId = item.productId;
+
+        // Get product details
+        let productDetails = getProduct(productId);
+
+        // Extract price in cents and quantity
+        let priceCents = Number(productDetails.priceCents);
+        let quantity = Number(item.quantity);
+
+        // Calculate total price for this item
+        let itemTotalCents = priceCents * quantity;
+        if(quantity >= 1 && quantity <= 10)
+        {
+            // Add to overall total
+            totalCents += itemTotalCents;
+        }
+
     })
 
     
@@ -438,7 +459,7 @@ function generateAmountDetailsSection(discountCents =0){
         </div>
         `;
 
-      //append the htmls to the amount detail section  
+    //append the htmls to the amount detail section  
     getAmountDetailsSection.innerHTML=generateHtm;
 
 }

@@ -71,14 +71,30 @@ export function addToCart(productId,quantityValue)
 
 /**
  * The function take the product id and remove the item from the cart item 
- * @param {*} productID :
+ * @param {*} productID :Product id of the cart array
  */
 export function removeCartItem(productID){
     
     //remove the item from the cart
     cart=cart.filter(item => item.productId !== productID);
     
-    
     //save in the local storage
+    saveToCart();
+}
+
+/**
+ * 
+ * @param {*} productID : Product id of the cart array
+ * @param {*} quantity : qunatity value which need to be updated
+ */
+export function updateQuantityInCart(productID,quantity){
+    cart.forEach((item)=>{
+        
+        if(item.productId===productID)
+        {
+            item.quantity=quantity;  
+        }
+    })
+    console.log('going to save in the cart')
     saveToCart();
 }
