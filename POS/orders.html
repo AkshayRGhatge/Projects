@@ -14,18 +14,60 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
 
         <!--StyleSheet-->
-        <link rel="stylesheet" href="css/order.css">
+        <link rel="stylesheet" href="css/orders.css">
     </head>
     <body>
        <div class="main-content">
-            <!--Category Placeholder contains the menu category-->  
-            <section> 
-                  <h1>Thank you for your order!</h1>
-                  <p>Your payment has been processed successfully.</p>
-            </section>
+            <h1>Order Confirmation</h1>
+            <p>Thank you for your order! Your meal is being prepared.</p>
+
+              <div class="info">
+                <p><strong>Customer Name:</strong> Akshay Ghatge</p>
+                <p><strong>Order #:</strong> 202509160718</p>
+                <p><strong>Order Date:</strong> September 16, 2025 - 07:18 AM EST</p>
+            </div>
+            <h2>Order Summary</h2>
+            <table>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <td>Chickpea Chaat</td>
+                    <td>2</td>
+                    <td>$16.00</td>
+                </tr>
+                <tr>
+                    <td>Air Fryer Falafel</td>
+                    <td>1</td>
+                    <td>$9.50</td>
+                </tr>
+            </table>
+
+            <h2>Payment Details</h2>
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td>$25.50</td>
+                </tr>
+                <tr>
+                    <td>Tax (13%)</td>
+                    <td>$3.32</td>
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td>$0.00</td>
+                </tr>
+                <tr class="total">
+                    <td>Total</td>
+                    <td>$28.82</td>
+                </tr>
+            </table>
+            <div class="print-btn-section">
+                <button id="print-btn"><i class="fas fa-print"></i> Print Receipt</button>
+            </div>
        </div>
     </body>
-    <!--JS Reference-->
-
-    <!--<script type="module" src="scripts/pos.js"></script>-->
+  
 </html>
