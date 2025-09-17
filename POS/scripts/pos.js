@@ -1,6 +1,7 @@
 import { Products ,getProduct } from "../data/products.js";
 import { formatCurrency,taxCalculator,formatDollartoCents,calculateDiscountValue } from "../scripts/utils/money.js";
-import { cart,addToCart ,loadFromStorage, saveToCart ,removeCartItem, updateQuantityInCart} from "../data/cart.js";
+import { cart,addToCart ,loadFromStorage ,removeCartItem, updateQuantityInCart} from "../data/cart.js";
+import { orders } from "../data/orders.js";
 
 
 //param 1: arr: which take the array and loop through each item
@@ -260,7 +261,6 @@ getCustomerNameEdit.addEventListener('click', function(){
 })
 
 
-
 // func to generate the html content for the Order Items
 function generateOrderItemsHtml()
 {
@@ -291,7 +291,7 @@ function generateOrderItemsHtml()
                                     <button class="minus-icon">
                                         <i class="fa fa-minus-circle js-delete-quantity" data-product-id="${getProductItemDetails.id}"></i>
                                     </button>
-                                    <input type="text" class="order-qty-item" value="${item.quantity}">
+                                    <input type="text" class="order-qty-item" value="${item.quantity}" readonly>
                                     <button class="plus-icon">
                                         <i class="fa fa-plus-circle js-add-quantity" data-product-id="${getProductItemDetails.id}"></i>
                                     </button>      
@@ -466,6 +466,10 @@ function generateAmountDetailsSection(discountCents =0){
 //Make discount interactive
 getAmountDetailsSection.addEventListener('click', function(e){
 
+    //variables to store the amounts details
+    let discountValueCents=0;
+
+
     //Apply Button click
     if(e.target.classList.contains('js-apply-button'))
     {
@@ -486,8 +490,6 @@ getAmountDetailsSection.addEventListener('click', function(e){
         
         //convert the subtotal to cents
         let convertCents=formatDollartoCents(removeDollarSign);
-        
-        let discountValueCents=0;
 
         //check if the discount unit is percentage
         if(getDiscountUnit === 'percent')
@@ -506,6 +508,92 @@ getAmountDetailsSection.addEventListener('click', function(e){
     //Proceed payment button click
     if(e.target.id.includes('js-proceed-payment'))
     {
+
+        processOrder();
         window.location.href = "./orders.html";
+
     }
 })
+
+function processOrder(discountValueCents){
+
+    let orderDetails= createOrderFromCart(discountValueCents);
+
+}
+
+
+function createOrderFromCart(discountValue){
+
+    //check the cart length
+    if (cart.length === 0) {
+        alert("Cart is empty. Cannot create order.");
+        return null;
+    }
+
+    //get customer name 
+    const customerName = getCustomerNamelabel.textContent.trim() || "Guest";
+
+    // Calculate totals
+    let individualItemPriceCents = 0;
+    const orderItems = [];
+    let subTotalCents =0;
+    let discountValueCents=discountValue;
+
+    //Loop through each cart items
+    cart.forEach((item)=>{
+
+        let productId = item.productId;
+
+        // Get product details
+        let productDetails = getProduct(productId);
+
+        // Extract price in cents and quantity
+        let priceCents = Number(productDetails.priceCents);
+        let quantity = Number(item.quantity);
+
+        // Calculate total price for this item
+        individualItemPriceCents = priceCents * quantity;
+
+        if(quantity >= 1 && quantity <= 10)
+        {
+            // Add to overall total
+            subTotalCents += individualItemPriceCents;
+        }
+        orderItems.push({
+            name: productDetails.name,
+            quantity:item.quantity,
+            price:formatCurrency(individualItemPriceCents)
+        })
+
+    })
+
+    const taxCents = taxCalculator(subTotalCents);
+    const totalCents = (subTotalCents + taxCents) - discountValueCents;
+
+  // Create order object
+    const newOrder = {
+        orderId: generateOrderId(),
+        customerName: customerName,
+        items: orderItems,
+        subtotal: formatCurrency(subTotalCents),
+        tax: formatCurrency(taxCents),
+        discount: formatCurrency(discountValueCents),
+        total: formatCurrency(totalCents),
+        timestamp: new Date().toISOString()
+    };
+
+    return newOrder;
+}
+
+// Function to generate unique order ID
+function generateOrderId() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    return `${year}${month}${day}${hours}${minutes}${seconds}`;
+}
