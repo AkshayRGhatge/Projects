@@ -507,7 +507,7 @@ article {
 
 /*Promo Apply Section*/
 .promo-apply-section{
-  gap:15px;
+  gap:2px;
 }
 
 /*Apply Button*/
@@ -716,7 +716,7 @@ article {
     .proceed-payment {
       width: 100%;
       font-size: 16px;
-    }
+    } 
 }
 
 /* Very small screens */
@@ -738,6 +738,16 @@ article {
   .product-image-container {
     height: 150px;
   }
+
+  .apply-button{
+      width: 100%;
+  }
+  
+  .promo-apply-section{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
 
 /* Large screens */

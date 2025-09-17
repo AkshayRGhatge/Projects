@@ -397,7 +397,6 @@ getOrderGrid.addEventListener('click', function(e){
 
 
 //Make the amount placeholder interactive=
-
 function generateAmountDetailsSection(discountCents =0){
 
     let totalCents=0;
