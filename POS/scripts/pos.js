@@ -1,7 +1,7 @@
 import { Products ,getProduct } from "../data/products.js";
 import { formatCurrency,taxCalculator,formatDollartoCents,calculateDiscountValue } from "../scripts/utils/money.js";
 import { cart,addToCart ,loadFromStorage ,removeCartItem, updateQuantityInCart} from "../data/cart.js";
-import { orders } from "../data/orders.js";
+import { addOrders } from "../data/orders.js";
 
 
 //param 1: arr: which take the array and loop through each item
@@ -509,7 +509,8 @@ getAmountDetailsSection.addEventListener('click', function(e){
     if(e.target.id.includes('js-proceed-payment'))
     {
 
-        processOrder();
+        let order=processOrder(discountValueCents);
+        addOrders(order);
         window.location.href = "./orders.html";
 
     }
@@ -517,8 +518,7 @@ getAmountDetailsSection.addEventListener('click', function(e){
 
 function processOrder(discountValueCents){
 
-    let orderDetails= createOrderFromCart(discountValueCents);
-
+    return createOrderFromCart(discountValueCents);
 }
 
 

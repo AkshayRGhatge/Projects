@@ -1,8 +1,6 @@
-export let orders=[];
+export const orders=JSON.parse(localStorage.getItem('orderItems')) || [];
 
-loadFromStorageOrder();
-
-export function saveToOrders()
+export function saveToStorageOrders()
 {
     //set the cart items in the local storage
     localStorage.setItem("orderItems", JSON.stringify(orders));
@@ -14,24 +12,30 @@ export function saveToOrders()
 export function loadFromStorageOrder()
 {
     // get the cart items from local storage
-   orders= JSON.parse(localStorage.getItem("orderItems")) || [];
+   orders= JSON.parse(localStorage.getItem("orderItems"));
    
 }
 
-export function addToOrder(productId,quantityValue)
+/**
+ * THis function add the new order in the array and save to storage
+ * @param {*} order 
+ */
+export function addOrders(orderItem)
 {
-    
-    //variable to hold if existing cart item exist or not
-    let matchItem;
-    //Loop through each cart item
-    orders.forEach((orderItem)=>{
-        //check if there is already an existing item in the cart
-        if(orderItem.orderId===productId)
-        {
-           matchItem=orderItem;
-        }
-    })
-
-    //save in the local storage
-    saveToOrders();
+    console.log(orderItem);
+    orders.unshift(orderItem);
+    saveToStorageOrders();
 }
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    let orderDetails='';
+    let orderGridHtml='';
+
+    
+
+
+
+})
+
+
