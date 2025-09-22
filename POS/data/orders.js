@@ -30,7 +30,9 @@ export function addOrders(orderItem)
 const custNameSection=document.querySelector('.js-customer-info');
 const orderitems=document.querySelector('.js-order-items');
 const orderPaymentDetails=document.querySelector('.js-order-payment-details');
+const getPrintBtn=document.getElementById('print-btn');;
 
+//load the order page
 document.addEventListener('DOMContentLoaded', function(){
 
     let orderPayDetails='';
@@ -79,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function(){
     
 //append the customer name section
 custNameSection.innerHTML=customerNameSection;
-console.log(newOrderItem);
 
 //append the payment 
 orderPaymentDetails.innerHTML=orderPayDetails;
@@ -87,3 +88,7 @@ orderPaymentDetails.innerHTML=orderPayDetails;
 })
 
 
+//print event
+getPrintBtn.addEventListener('click', function(){
+    window.print();
+})
