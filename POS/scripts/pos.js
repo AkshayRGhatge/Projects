@@ -72,6 +72,10 @@ const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //
 const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
 const getOrderGrid=document.querySelector('.js-order-grid'); //Variable for the order item grid 
 const getAmountDetailsSection=document.querySelector('.js-amount-details-section');//Variable to get the amount section
+const getDiscountLabelValue=document.querySelector('.js-discount-label');//Variable to get the discount value
+
+//variables to store the amounts details
+let discountValueCents=0;
 
 //ON the load of the dom click the Starter item
 document.addEventListener('DOMContentLoaded', function(){
@@ -466,10 +470,6 @@ function generateAmountDetailsSection(discountCents =0){
 //Make discount interactive
 getAmountDetailsSection.addEventListener('click', function(e){
 
-    //variables to store the amounts details
-    let discountValueCents=0;
-
-
     //Apply Button click
     if(e.target.classList.contains('js-apply-button'))
     {
@@ -508,21 +508,20 @@ getAmountDetailsSection.addEventListener('click', function(e){
     //Proceed payment button click
     if(e.target.id.includes('js-proceed-payment'))
     {
-
-        let order=processOrder(discountValueCents);
+        let order=processOrder();
         addOrders(order);
         window.location.href = "./orders.html";
 
     }
 })
 
-function processOrder(discountValueCents){
+function processOrder(){
 
-    return createOrderFromCart(discountValueCents);
+    return createOrderFromCart();
 }
 
 
-function createOrderFromCart(discountValue){
+function createOrderFromCart(){
 
     //check the cart length
     if (cart.length === 0) {
@@ -537,7 +536,6 @@ function createOrderFromCart(discountValue){
     let individualItemPriceCents = 0;
     const orderItems = [];
     let subTotalCents =0;
-    let discountValueCents=discountValue;
 
     //Loop through each cart items
     cart.forEach((item)=>{

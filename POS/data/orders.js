@@ -36,53 +36,53 @@ document.addEventListener('DOMContentLoaded', function(){
     let orderPayDetails='';
     let newOrderItem='';
     let customerNameSection='';
-    orders.forEach((orderItem)=>{
+ 
+    const latestOrder = orders[0]; // get the most recent order
+    if (!latestOrder) return;
 
-        customerNameSection=`
-                <p><strong>Customer Name:</strong>${orderItem.customerName}</p>
-                <p><strong>Order #:</strong> ${orderItem.orderId}</p>
-                <p><strong>Order Date:</strong>${orderItem.timestamp}</p>
+
+    customerNameSection=`
+            <p><strong>Customer Name:</strong>${latestOrder.customerName}</p>
+            <p><strong>Order #:</strong> ${latestOrder.orderId}</p>
+            <p><strong>Order Date:</strong>${latestOrder.timestamp}</p>
+        `;
+
+    latestOrder.items.forEach((item)=>{
+            newOrderItem=document.createElement('tr');
+            newOrderItem.innerHTML=`
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price}</td>
             `;
 
-        orderItem.items.forEach(()=>{
-                newOrderItem=document.createElement('tr');
-                newOrderItem.innerHTML=`
-                    <td>${orderItem.items.name}</td>
-                    <td>${orderItem.items.quantity}</td>
-                    <td>${orderItem.items.npriceame}</td>
-                `;
-        })
-
-        orderPayDetails=`   
-            <tr>
-                    <td>Subtotal</td>
-                    <td>$${orderItem.subtotal}</td>
-                </tr>
-                <tr>
-                    <td>Tax (13%)</td>
-                    <td>$${orderItem.tax}</td>
-                </tr>
-                <tr>
-                    <td>Discount</td>
-                    <td>$${orderItem.discount}</td>
-                </tr>
-                <tr class="total">
-                    <td>Total</td>
-                    <td>$${orderItem.total}</td>
-            </tr>
-            `;
+        orderitems.appendChild(newOrderItem)
     })
+
+    orderPayDetails=`   
+        <tr>
+                <td>Subtotal</td>
+                <td>$${latestOrder.subtotal}</td>
+            </tr>
+            <tr>
+                <td>Tax (13%)</td>
+                <td>$${latestOrder.tax}</td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td>$${latestOrder.discount}</td>
+            </tr>
+            <tr class="total">
+                <td>Total</td>
+                <td>$${latestOrder.total}</td>
+        </tr>
+        `;
     
 //append the customer name section
 custNameSection.innerHTML=customerNameSection;
 console.log(newOrderItem);
-//append the order item
-orderitems.appendChild(newOrderItem);
 
 //append the payment 
-orderPaymentDetails.innerHTML=orderPaymentDetails;
-
-
+orderPaymentDetails.innerHTML=orderPayDetails;
 
 })
 
