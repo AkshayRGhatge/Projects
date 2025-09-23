@@ -72,7 +72,8 @@ const getCustomerNamelabel=document.getElementById('js-customer-name-label'); //
 const getCustomerNameEdit=document.getElementById('js-edit-customer-name'); //Variable for the customer name label in the order details section
 const getOrderGrid=document.querySelector('.js-order-grid'); //Variable for the order item grid 
 const getAmountDetailsSection=document.querySelector('.js-amount-details-section');//Variable to get the amount section
-const getDiscountLabelValue=document.querySelector('.js-discount-label');//Variable to get the discount value
+const getDateSection=document.querySelector('.js-order-item p'); //variable to print date
+
 
 //variables to store the amounts details
 let discountValueCents=0;
@@ -97,6 +98,14 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     })
 })
+
+
+// set the date
+setInterval((function(){
+    const now = dayjs();
+    const formatted = now.format('DD MMM, YYYY hh:mmA');
+    getDateSection.textContent=formatted;
+}),2000);
 
 //Loop through each category item and add click event listener
 getCategories.forEach(categoryItem=>{

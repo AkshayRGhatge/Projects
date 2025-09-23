@@ -22,73 +22,76 @@ export function loadFromStorageOrder()
  */
 export function addOrders(orderItem)
 {
-    console.log(orderItem);
     orders.unshift(orderItem);
     saveToStorageOrders();
 }
 
-const custNameSection=document.querySelector('.js-customer-info');
-const orderitems=document.querySelector('.js-order-items');
-const orderPaymentDetails=document.querySelector('.js-order-payment-details');
-const getPrintBtn=document.getElementById('print-btn');;
-
-//load the order page
-document.addEventListener('DOMContentLoaded', function(){
-
-    let orderPayDetails='';
-    let newOrderItem='';
-    let customerNameSection='';
- 
-    const latestOrder = orders[0]; // get the most recent order
-    if (!latestOrder) return;
 
 
-    customerNameSection=`
-            <p><strong>Customer Name:</strong>${latestOrder.customerName}</p>
-            <p><strong>Order #:</strong> ${latestOrder.orderId}</p>
-            <p><strong>Order Date:</strong>${latestOrder.timestamp}</p>
-        `;
+//Only load the script on the order page.
+if (window.location.pathname.includes('orders.html')) {
 
-    latestOrder.items.forEach((item)=>{
-            newOrderItem=document.createElement('tr');
-            newOrderItem.innerHTML=`
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>${item.price}</td>
+    const custNameSection=document.querySelector('.js-customer-info');
+    const orderitems=document.querySelector('.js-order-items');
+    const orderPaymentDetails=document.querySelector('.js-order-payment-details');
+    const getPrintBtn=document.getElementById('print-btn');
+
+    //load the order page
+    document.addEventListener('DOMContentLoaded', function(){
+
+        let orderPayDetails='';
+        let newOrderItem='';
+        let customerNameSection='';
+    
+        const latestOrder = orders[0]; // get the most recent order
+        if (!latestOrder) return;
+
+        customerNameSection=`
+                    <p><strong>Customer Name:</strong>${latestOrder.customerName}</p>
+                    <p><strong>Order #:</strong> ${latestOrder.orderId}</p>
+                    <p><strong>Order Date:</strong>${latestOrder.timestamp}</p>
+                `;
+
+        latestOrder.items.forEach((item)=>{
+                newOrderItem=document.createElement('tr');
+                newOrderItem.innerHTML=`
+                    <td>${item.name}</td>
+                    <td>${item.quantity}</td>
+                    <td>${item.price}</td>
+                `;
+
+            orderitems.appendChild(newOrderItem)
+        })
+
+        orderPayDetails=`   
+                <tr>
+                        <td>Subtotal</td>
+                        <td>$${latestOrder.subtotal}</td>
+                    </tr>
+                    <tr>
+                        <td>Tax (13%)</td>
+                        <td>$${latestOrder.tax}</td>
+                    </tr>
+                    <tr>
+                        <td>Discount</td>
+                        <td>$${latestOrder.discount}</td>
+                    </tr>
+                    <tr class="total">
+                        <td>Total</td>
+                        <td>$${latestOrder.total}</td>
+                </tr>
             `;
+        
+        //append the customer name section
+        custNameSection.innerHTML=customerNameSection;
 
-        orderitems.appendChild(newOrderItem)
+        //append the payment 
+        orderPaymentDetails.innerHTML=orderPayDetails;
+
     })
 
-    orderPayDetails=`   
-        <tr>
-                <td>Subtotal</td>
-                <td>$${latestOrder.subtotal}</td>
-            </tr>
-            <tr>
-                <td>Tax (13%)</td>
-                <td>$${latestOrder.tax}</td>
-            </tr>
-            <tr>
-                <td>Discount</td>
-                <td>$${latestOrder.discount}</td>
-            </tr>
-            <tr class="total">
-                <td>Total</td>
-                <td>$${latestOrder.total}</td>
-        </tr>
-        `;
-    
-//append the customer name section
-custNameSection.innerHTML=customerNameSection;
-
-//append the payment 
-orderPaymentDetails.innerHTML=orderPayDetails;
-
-})
-
-
-//print event
-getPrintBtn.addEventListener('click', function(){
-    window.print();
-})
+    //print event
+    getPrintBtn.addEventListener('click', function(){
+        window.print();
+    })
+}
