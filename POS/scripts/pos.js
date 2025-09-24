@@ -467,7 +467,7 @@ function generateAmountDetailsSection(discountCents =0){
             <button class="apply-button js-apply-button">Apply</button>
         </div>
         <div class="proceed-payment-section">
-            <button class="proceed-payment" id="js-proceed-payment">Proceed Payment</button>
+            <button class="proceed-payment" id="js-proceed-payment">Place Order</button>
         </div>
         `;
 
